@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CartoesController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('cartoes', 'App\Http\Controllers\CartoesController');
 
+Route::get('pages.numerosjogados.home', [CartoesController::class])->name('cartoes.home');
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('/pages/numerosjogados/home');
 });
+
+
+
 
 Auth::routes();
 

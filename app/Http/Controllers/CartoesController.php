@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCadRequest;
+use App\Models\Cartoes;
 use Illuminate\Http\Request;
 
 class CartoesController extends Controller
 {
+    private $repository;
+    public function __construct(Cartoes $cartao)
+    {
+        $this->repository = $cartao;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,22 @@ class CartoesController extends Controller
      */
     public function index()
     {
-        //
+        $cartoes = $this->repository->all();
+
+        return view('pages.numerosjogados.index', compact('cartoes'));
+
+
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function home()
+    {
+        return view('pages.numerosjogados.home');
+
     }
 
     /**
@@ -29,12 +51,17 @@ class CartoesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\StoreCadRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCadRequest $request)
     {
-        //
+        $cartoes = $request->all();
+        Cartoes::create($cartoes);
+        //$cartoes = Cartoes::create($request->all());
+        //dd($cartoes);
+
+        return redirect()->route('cartoes.index');
     }
 
     /**
@@ -45,7 +72,14 @@ class CartoesController extends Controller
      */
     public function show($id)
     {
-        //
+        // $cartao = Cartoes::where('id', $id)->first();
+
+        $cartao = Cartoes::find($id);
+
+        // return redirect()->route('cartoes.show', compact('cartao'));
+
+        return view('pages.numerosjogados.show', compact('cartao'));
+
     }
 
     /**
@@ -56,7 +90,10 @@ class CartoesController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(!$cartao = $this->repository->find($id))
+            return redirect()->back();
+
+        return view('pages.numerosjogados.edit', compact('cartao'));
     }
 
     /**
@@ -66,9 +103,12 @@ class CartoesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        if (!$cartao = $this->repository->find($id))
+            return redirect()->back();
+
+        dd("Editado cartão");
     }
 
     /**
@@ -79,6 +119,13 @@ class CartoesController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+       $cartao = Cartoes::find($id);
+
+        $cartao->delete();
+
+        return redirect()
+            ->route('cartoes.index')
+            ->with('message', 'Cartão deletado com sucesso');
     }
 }
