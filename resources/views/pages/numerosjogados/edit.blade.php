@@ -4,9 +4,22 @@
 @section('edit')
     <table class="table table-striped">
         <h1>Edição de Cartões</h1>
-        <form action=" {{ route('cartoes.update')}} " method="POST">
-            @method('PUT')
+        <form action=" {{ route('cartoes.update', $cartao ->id)}}  " method="POST">
+            @method('put')
             @csrf
+
+            @if ($errors->any())
+            <div class="alert alert-warning">
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error}}</p>
+                @endforeach
+            </div>
+            @endif
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="identificador" id="identificador" value="{{$cartao ->identificador}}" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
+            </div>
+
             <tbody>
                 <tr>
                     <td><input type="number" name="nj1" id="nj1" value="{{$cartao ->nj1}}" ></td>
@@ -38,8 +51,6 @@
                 </tr>
             </tbody>
         </table>
-        <button type="button" class="btn btn-secondary btn-lg" role="toolbar">
-            <a href="{{ route('cartoes.index')}}">Editar</a>
-        </button>
+        <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">Editar</button>
 </form>
 @endsection

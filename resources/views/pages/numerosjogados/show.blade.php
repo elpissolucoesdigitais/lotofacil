@@ -39,7 +39,7 @@
         <a href="{{ route('cartoes.index')}}">Voltar</a>
     </button>
     <button type="button" class="btn btn-warning btn-lg">
-        <a href="">Editar</a>
+        <a href="{{ route('cartoes.edit', $cartao->id)}}">Editar</a>
     </button>
     <form action="{{ route('cartoes.destroy', $cartao ->id)}}" method="post">
         @csrf
