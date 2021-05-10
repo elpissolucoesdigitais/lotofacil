@@ -45,7 +45,7 @@ class CartoesController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.numerosjogados.create');
     }
 
     /**
@@ -61,7 +61,9 @@ class CartoesController extends Controller
         //$cartoes = Cartoes::create($request->all());
         //dd($cartoes);
 
-        return redirect()->route('cartoes.index');
+        return redirect()
+                    ->route('cartoes.index')
+                    ->with('message', 'Cartão atualizado com sucesso');
     }
 
     /**
@@ -90,8 +92,12 @@ class CartoesController extends Controller
      */
     public function edit($id)
     {
-        if(!$cartao = $this->repository->find($id))
-            return redirect()->back();
+        //if(!$cartao = $this->repository->find($id))
+        //    return redirect()->back();
+
+        if(!$cartao = Cartoes::find($id)){
+            return redirect()->route('cartoes.index');
+        }
 
         return view('pages.numerosjogados.edit', compact('cartao'));
     }
@@ -103,12 +109,20 @@ class CartoesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(StoreCadRequest $request, $id)
     {
-        if (!$cartao = $this->repository->find($id))
-            return redirect()->back();
+        //if (!$cartao = $this->repository->find($id))
+        //   return redirect()->back();
 
-        dd("Editado cartão");
+        if(!$cartao = Cartoes::find($id)){
+            return redirect()->back();
+        }
+        $cartao->update($request->all());
+
+        return redirect()
+                ->route('cartoes.index')
+                ->with('message', 'Cartão atualizado com sucesso');
+
     }
 
     /**
@@ -127,5 +141,12 @@ class CartoesController extends Controller
         return redirect()
             ->route('cartoes.index')
             ->with('message', 'Cartão deletado com sucesso');
+    }
+
+    public function search(Request $request){
+        $cartoes = Cartoes::where('identificador', 'LIKE', "%{$request->search}%")
+                            ->paginate();
+
+        return view('pages.numerosjogados.index', compact('cartoes'));
     }
 }
