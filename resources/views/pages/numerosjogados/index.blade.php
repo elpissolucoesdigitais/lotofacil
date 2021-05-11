@@ -38,10 +38,10 @@
                     <td>{{ $cartao ->identificador}}</td>
                     <td>{{ $cartao ->created_at}}</td>
                     <td width="30%">
-                        <button type="button" class="btn btn-primary">
+                        <button type="button" class="btn btn-success">
                             <a href="{{ route('cartoes.show', $cartao ->id)}}" >Vizualizar</a>
                         </button>
-                        <button type="button" class="btn btn-warning">
+                        <button type="button" class="btn btn-primary">
                             <a href="{{ route('cartoes.edit', $cartao ->id)}}">Editar</a>
                         </button>
                         <form action="{{ route('cartoes.destroy', $cartao ->id)}}" method="post">

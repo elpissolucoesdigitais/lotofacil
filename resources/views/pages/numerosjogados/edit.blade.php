@@ -1,6 +1,5 @@
 @extends('template.template')
 
-
 @section('edit')
     <table class="table table-striped">
         <h1>Edição de Cartões</h1>
@@ -20,7 +19,7 @@
                 <input type="text" class="form-control" name="identificador" id="identificador" value="{{$cartao ->identificador}}" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
             </div>
 
-            <tbody>
+            <table>
                 <tr>
                     <td><input type="number" name="nj1" id="nj1" value="{{$cartao ->nj1}}" ></td>
                     <td><input type="number" name="nj2" id="nj2" value="{{$cartao ->nj2}}"></td>
@@ -49,8 +48,13 @@
                     <td><input type="number" name="nj19" id="nj19" value="{{$cartao ->nj19}}"></td>
                     <td><input type="number" name="nj20" id="nj20" value="{{$cartao ->nj20}}"></td>
                 </tr>
-            </tbody>
+            </table>
         </table>
         <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">Editar</button>
+        <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
+                <a href=" {{ route('cartoes.index')}} "> Voltar </a>
+            </button>
+        </div>
 </form>
 @endsection

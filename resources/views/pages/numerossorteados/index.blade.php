@@ -45,10 +45,10 @@
                     <td>{{ $sorteado ->identificador}}</td>
                     <td>{{ $sorteado ->created_at}}</td>
                     <td width="30%">
-                        <button type="button" class="btn btn-primary">
+                        <button type="button" class="btn btn-success">
                             <a href="{{ route('sorteados.show', $sorteado->id)}}" >Vizualizar</a>
                         </button>
-                        <button type="button" class="btn btn-warning">
+                        <button type="button" class="btn btn-primary">
                             <a href="{{ route('sorteados.edit', $sorteado->id)}}">Editar</a>
                         </button>
                         <form action="{{ route('sorteados.destroy', $sorteado->id)}}" method="post">

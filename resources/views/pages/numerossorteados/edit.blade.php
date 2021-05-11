@@ -52,5 +52,10 @@
             </tbody>
         </table>
         <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">Editar</button>
+        <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
+                <a href=" {{ route('sorteados.index')}} "> Voltar </a>
+            </button>
+        </div>
 </form>
 @endsection

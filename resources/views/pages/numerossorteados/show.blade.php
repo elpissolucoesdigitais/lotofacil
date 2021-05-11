@@ -35,10 +35,10 @@
             </tr>
         </tbody>
     </table>
-    <button type="button" class="btn btn-secondary btn-lg" role="toolbar">
+    <button type="button" class="btn btn-success btn-lg" role="toolbar">
         <a href="{{ route('sorteados.index')}}">Voltar</a>
     </button>
-    <button type="button" class="btn btn-warning btn-lg">
+    <button type="button" class="btn btn-primary btn-lg">
         <a href="{{ route('sorteados.edit', $sorteado->id)}}">Editar</a>
     </button>
     <form action="{{ route('sorteados.destroy', $sorteado->id)}}" method="post">

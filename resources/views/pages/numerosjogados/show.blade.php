@@ -38,10 +38,10 @@
 
 
     <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-secondary btn-lg" role="toolbar">
+        <button type="button" class="btn btn-success btn-lg" role="toolbar">
             <a href="{{ route('cartoes.index')}}">Voltar</a>
         </button>
-        <button type="button" class="btn btn-warning btn-lg">
+        <button type="button" class="btn btn-primary btn-lg">
             <a href="{{ route('cartoes.edit', $cartao->id)}}">Editar</a>
         </button>
         <form action="{{ route('cartoes.destroy', $cartao ->id)}}" method="post">

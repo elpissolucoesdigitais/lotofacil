@@ -22,7 +22,7 @@
         </div>
 
 
-            <table class="table table-striped">
+            <table class="">
                 <thead>
                     <h2 style="text-align:center;">Insira os Números Sorteados Abaixo</h2>
                 </thead>
