@@ -2,6 +2,14 @@
 
 @section('create')
     <br>
+
+    @if (session('message'))
+        <h3 class="alert alert-warning" style="text-align:center;">
+            {{session('message')}}
+        </h3>
+    @endif
+    <br>
+
     <h1 style="text-align:center;">Cadastrar Concurso</h1>
 
     <div class="">
@@ -73,7 +81,7 @@
                     </div>
                     <div class="btn-group mr-2" role="group" aria-label="Second group">
                         <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
-                            <a href=" {{ route('cartoes.index')}} "> Voltar </a>
+                            <a href=" {{ route('cartoes.home')}} "> Voltar </a>
                         </button>
                     </div>
                 </div>

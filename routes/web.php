@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartoesController;
+use App\Http\Controllers\SorteadosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,9 @@ Route::get('pages.numerosjogados.home', [CartoesController::class, 'home'])->nam
 /*
 Rotas para os numeros sorteados
 */
+Route::post('sorteados/search', [SorteadosController::class, 'search'])->name('sorteados.search');
 Route::resource('sorteados', 'App\Http\Controllers\SorteadosController');
+
 
 
 

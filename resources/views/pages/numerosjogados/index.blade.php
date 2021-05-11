@@ -2,12 +2,15 @@
 
 @section('index')
 
-@if (session('message'))
-    <h3>
-        {{session('message')}}
-    </h3>
+    <br>
+    <div class="d-flex justify-content-center">
+        <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
+                <a href=" {{ route('cartoes.home')}} "> Voltar </a>
+            </button>
+        </div>
+    </div>
 
-@endif
     <br>
     <form action="{{ route('cartoes.search')}}" method="post">
         @csrf

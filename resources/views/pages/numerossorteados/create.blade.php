@@ -66,7 +66,7 @@
                     </div>
                     <div class="btn-group mr-2" role="group" aria-label="Second group">
                         <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
-                            <a href=" {{ route('cartoes.index')}} "> Voltar </a>
+                            <a href=" {{ route('cartoes.home')}} "> Voltar </a>
                         </button>
                     </div>
                 </div>

@@ -35,17 +35,21 @@
             </tr>
         </tbody>
     </table>
-    <button type="button" class="btn btn-secondary btn-lg" role="toolbar">
-        <a href="{{ route('cartoes.index')}}">Voltar</a>
-    </button>
-    <button type="button" class="btn btn-warning btn-lg">
-        <a href="{{ route('cartoes.edit', $cartao->id)}}">Editar</a>
-    </button>
-    <form action="{{ route('cartoes.destroy', $cartao ->id)}}" method="post">
-        @csrf
-        <input type="hidden" name="_method" value="DELETE">
-        <button type="submit" class="btn btn-danger">Apagar</button>
-    </form>
+
+
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary btn-lg" role="toolbar">
+            <a href="{{ route('cartoes.index')}}">Voltar</a>
+        </button>
+        <button type="button" class="btn btn-warning btn-lg">
+            <a href="{{ route('cartoes.edit', $cartao->id)}}">Editar</a>
+        </button>
+        <form action="{{ route('cartoes.destroy', $cartao ->id)}}" method="post">
+            @csrf
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger">Apagar</button>
+        </form>
+    </div>
 @endsection
 
 

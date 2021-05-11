@@ -45,11 +45,11 @@ class SorteadosController extends Controller
     {
         $sorteados = $request->all();
         Sorteados::create($sorteados);
-        //$cartoes = Cartoes::create($request->all());
-        //dd($cartoes);
+        //$sorteados = Sorteados::create($request->all());
+        //dd($sorteados);
 
         return redirect()
-                    ->route('cartoes.index')
+                    ->route('sorteados.index')
                     ->with('message', 'Cartão atualizado com sucesso');
     }
 
@@ -61,7 +61,13 @@ class SorteadosController extends Controller
      */
     public function show($id)
     {
-        //
+        // $sorteado = Sorteados::where('id', $id)->first();
+
+        $sorteado = Sorteados::find($id);
+
+        // return redirect()->route('cartoes.show', compact('cartao'));
+
+        return view('pages.numerossorteados.show', compact('sorteado'));
     }
 
     /**
@@ -72,7 +78,14 @@ class SorteadosController extends Controller
      */
     public function edit($id)
     {
-        //
+        //if(!$sorteado = $this->repository->find($id))
+        //    return redirect()->back();
+
+        if(!$sorteado = Sorteados::find($id)){
+            return redirect()->route('sorteados.index');
+        }
+
+        return view('pages.numerossorteados.edit', compact('sorteado'));
     }
 
     /**
@@ -82,9 +95,19 @@ class SorteadosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreSorteadosRequest $request, $id)
     {
-        //
+        //if (!$sorteado = $this->repository->find($id))
+        //   return redirect()->back();
+
+        if(!$sorteado = Sorteados::find($id)){
+            return redirect()->back();
+        }
+        $sorteado->update($request->all());
+
+        return redirect()
+                ->route('sorteados.index')
+                ->with('message', 'Cartão Sorteado atualizado com sucesso');
     }
 
     /**
@@ -95,6 +118,19 @@ class SorteadosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sorteado = Sorteados::find($id);
+
+        $sorteado->delete();
+
+        return redirect()
+            ->route('sorteados.index')
+            ->with('message', 'Cartão deletado com sucesso');
+    }
+
+    public function search(Request $request){
+        $sorteados = Sorteados::where('identificador', 'LIKE', "%{$request->search}%")
+                            ->paginate();
+
+        return view('pages.numerossorteados.index', compact('sorteados'));
     }
 }
