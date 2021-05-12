@@ -63,7 +63,7 @@ class CartoesController extends Controller
 
         return redirect()
                     ->route('cartoes.create')
-                    ->with('message', 'Cartão atualizado com sucesso');
+                    ->with('message', 'Cartão cadastrado com sucesso');
     }
 
     /**

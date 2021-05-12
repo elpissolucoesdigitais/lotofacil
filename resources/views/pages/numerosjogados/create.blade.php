@@ -20,8 +20,7 @@
 
     <div class="">
 
-        <form action=" {{ route('cartoes.store')}} " method="POST">
-        @csrf
+
 
         @if ($errors->any())
             <div class="alert alert-warning">
@@ -30,10 +29,11 @@
                 @endforeach
             </div>
         @endif
-
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" name="identificador" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
-        </div>
+        <form action=" {{ route('cartoes.store')}} " method="POST">
+            @csrf
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="identificador" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
+            </div>
 
             <table class="">
                 <thead>
@@ -41,33 +41,11 @@
                 </thead>
 
                 <tr>
-                    <td><input type="number" name="nj1" id="nj1" placeholder="01"></td>
-                    <td><input type="number" name="nj2" id="nj2" placeholder="02"></td>
-                    <td><input type="number" name="nj3" id="nj3" placeholder="03"></td>
-                    <td><input type="number" name="nj4" id="nj4" placeholder="04"></td>
-                    <td><input type="number" name="nj5" id="nj5" placeholder="05"></td>
-                </tr>
-                <tr>
-                    <td><input type="number" name="nj6" id="nj6" placeholder="06"></td>
-                    <td><input type="number" name="nj7" id="nj7" placeholder="07"></td>
-                    <td><input type="number" name="nj8" id="nj8" placeholder="08"></td>
-                    <td><input type="number" name="nj9" id="nj9" placeholder="09"></td>
-                    <td><input type="number" name="nj10" id="nj10" placeholder="10"></td>
-                </tr>
-                <tr>
-                    <td><input type="number" name="nj11" id="nj11" placeholder="11"></td>
-                    <td><input type="number" name="nj12" id="nj12" placeholder="12"></td>
-                    <td><input type="number" name="nj13" id="nj13" placeholder="13"></td>
-                    <td><input type="number" name="nj14" id="nj14" placeholder="14"></td>
-                    <td><input type="number" name="nj15" id="nj15" placeholder="15"></td>
-                </tr>
-                <tr>
-                    <td><input type="number" name="nj16" id="nj16" placeholder="16"></td>
-                    <td><input type="number" name="nj17" id="nj17" placeholder="17"></td>
-                    <td><input type="number" name="nj18" id="nj18" placeholder="18"></td>
-                    <td><input type="number" name="nj19" id="nj19" placeholder="19"></td>
-                    <td><input type="number" name="nj20" id="nj20" placeholder="20"></td>
-
+                    <td><input type="number" name="numerojogado[0]"  placeholder="01"></td>
+                    <td><input type="number" name="numerojogado[1]"  placeholder="02"></td>
+                    <td><input type="number" name="numerojogado[2]"  placeholder="03"></td>
+                    <td><input type="number" name="numerojogado[3]"  placeholder="04"></td>
+                    <td><input type="number" name="numerojogado[4]" placeholder="05"></td>
                 </tr>
             </table>
 
