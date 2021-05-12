@@ -43,8 +43,11 @@ class SorteadosController extends Controller
      */
     public function store(StoreSorteadosRequest $request)
     {
-        $sorteados = $request->all();
-        Sorteados::create($sorteados);
+        $sorteados = new Sorteados();
+
+        $sorteados->identificador = request('identificador');
+        $sorteados->numerosorteado = request('numerosorteado');
+        $sorteados->save();
         //$sorteados = Sorteados::create($request->all());
         //dd($sorteados);
 
@@ -103,7 +106,12 @@ class SorteadosController extends Controller
         if(!$sorteado = Sorteados::find($id)){
             return redirect()->back();
         }
-        $sorteado->update($request->all());
+        $sorteados = new Sorteados();
+
+        $sorteados->identificador = request('identificador');
+        $sorteados->numerosorteado = request('numerosorteado');
+        $sorteados->save();
+
 
         return redirect()
                 ->route('sorteados.index')

@@ -16,7 +16,7 @@ class CreateSorteadosTable extends Migration
         Schema::create('sorteados', function (Blueprint $table) {
             $table->id();
             $table->integer('identificador')->unique();
-            $table->integer('numerosorteado');
+            $table->json('numerosorteado');
             $table->timestamps();
         });
     }

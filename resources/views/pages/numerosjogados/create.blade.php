@@ -45,8 +45,8 @@
                 <center>
 
                 <div class="table_form">
-                    @for ($i = 1 ; $i < 6; $i++)
-                        @for ($j = 1 ; $j < 5; $j++)
+                    @for ($i = 1 ; $i < 3; $i++)
+                        @for ($j = 1 ; $j < 3; $j++)
                             @php
                                 $s = $s + 1;
                             @endphp
@@ -55,8 +55,7 @@
                         <br>
                     @endfor
                 </div>
-
-            </center>
+                </center>
 
 
             </table>
