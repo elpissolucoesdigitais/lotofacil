@@ -1,5 +1,6 @@
 <?php
 
+use Hamcrest\Type\IsInteger;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +17,7 @@ class CreateCartoesTable extends Migration
         Schema::create('cartoes', function (Blueprint $table) {
             $table->id();
             $table->integer('identificador');
-            $table->integer('numerojogado');
+            $table->json('numerojogado');
             $table->timestamps();
         });
     }

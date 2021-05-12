@@ -15,6 +15,12 @@ input{
     margin-right:auto;
     margin-left:auto;
 }
+/*.table_form{
+    border: 1px solid;
+    border-radius: 10px;
+    margin-right:auto;
+    margin-left:auto;
+}*/
 
 a:link{
     text-decoration: none;

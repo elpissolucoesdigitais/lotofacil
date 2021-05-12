@@ -11,6 +11,9 @@ class Cartoes extends Model
 
     protected $table = 'cartoes';
 
-    protected $fillable = ['identificador', 'nomerojogado'];
+    protected $fillable = ['identificador'];
+    protected $casts = [
+        'numerojogado' => 'array'
+    ];
 
 }
