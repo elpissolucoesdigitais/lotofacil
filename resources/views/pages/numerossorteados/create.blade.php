@@ -26,35 +26,24 @@
                 <thead>
                     <h2 style="text-align:center;">Insira os Números Sorteados Abaixo</h2>
                 </thead>
-                <tr>
-                    <td><input type="number" name="ns1" id="ns1" placeholder="01"></td>
-                    <td><input type="number" name="ns2" id="ns2" placeholder="02"></td>
-                    <td><input type="number" name="ns3" id="ns3" placeholder="03"></td>
-                    <td><input type="number" name="ns4" id="ns4" placeholder="04"></td>
-                    <td><input type="number" name="ns5" id="ns5" placeholder="05"></td>
-                </tr>
-                <tr>
-                    <td><input type="number" name="ns6" id="ns6" placeholder="06"></td>
-                    <td><input type="number" name="ns7" id="ns7" placeholder="07"></td>
-                    <td><input type="number" name="ns8" id="ns8" placeholder="08"></td>
-                    <td><input type="number" name="ns9" id="ns9" placeholder="09"></td>
-                    <td><input type="number" name="ns10" id="ns10" placeholder="10"></td>
-                </tr>
-                <tr>
-                    <td><input type="number" name="ns11" id="ns11" placeholder="11"></td>
-                    <td><input type="number" name="ns12" id="ns12" placeholder="12"></td>
-                    <td><input type="number" name="ns13" id="ns13" placeholder="13"></td>
-                    <td><input type="number" name="ns14" id="ns14" placeholder="14"></td>
-                    <td><input type="number" name="ns15" id="ns15" placeholder="15"></td>
-                </tr>
-                <tr>
-                    <td><input type="number" name="ns16" id="ns16" placeholder="16"></td>
-                    <td><input type="number" name="ns17" id="ns17" placeholder="17"></td>
-                    <td><input type="number" name="ns18" id="ns18" placeholder="18"></td>
-                    <td><input type="number" name="ns19" id="ns19" placeholder="19"></td>
-                    <td><input type="number" name="ns20" id="ns20" placeholder="20"></td>
+                @php
+                    $s = 0;
 
-                </tr>
+                @endphp
+                <center>
+
+                <div class="table_form">
+                    @for ($i = 0 ; $i < 5; $i++)
+                        @for ($j = 0 ; $j < 4; $j++)
+                            @php
+                                $s = $s + 1;
+                            @endphp
+                            <input type="number" name="numerosorteado[]" value="numerosorteado[{{$s}}]" placeholder="{{$s}}">
+                        @endfor
+                        <br>
+                    @endfor
+                </div>
+                </center>
             </table>
 
             <div class="d-flex justify-content-center">
