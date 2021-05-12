@@ -2,12 +2,15 @@
 
 @section('index')
 
-@if (session('message'))
-    <h3>
-        {{session('message')}}
-    </h3>
+    <br>
+    <div class="d-flex justify-content-center">
+        <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
+                <a href=" {{ route('cartoes.home')}} "> Voltar </a>
+            </button>
+        </div>
+    </div>
 
-@endif
     <br>
     <form action="{{ route('cartoes.search')}}" method="post">
         @csrf
@@ -35,10 +38,10 @@
                     <td>{{ $cartao ->identificador}}</td>
                     <td>{{ $cartao ->created_at}}</td>
                     <td width="30%">
-                        <button type="button" class="btn btn-primary">
+                        <button type="button" class="btn btn-success">
                             <a href="{{ route('cartoes.show', $cartao ->id)}}" >Vizualizar</a>
                         </button>
-                        <button type="button" class="btn btn-warning">
+                        <button type="button" class="btn btn-primary">
                             <a href="{{ route('cartoes.edit', $cartao ->id)}}">Editar</a>
                         </button>
                         <form action="{{ route('cartoes.destroy', $cartao ->id)}}" method="post">

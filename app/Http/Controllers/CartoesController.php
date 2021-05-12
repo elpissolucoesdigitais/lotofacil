@@ -62,7 +62,7 @@ class CartoesController extends Controller
         //dd($cartoes);
 
         return redirect()
-                    ->route('cartoes.index')
+                    ->route('cartoes.create')
                     ->with('message', 'Cartão atualizado com sucesso');
     }
 

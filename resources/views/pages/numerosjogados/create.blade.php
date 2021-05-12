@@ -1,8 +1,22 @@
 @extends('template.template')
 
 @section('create')
+
+<link rel="stylesheet" href="">
+
+
+
     <br>
+
+    @if (session('message'))
+        <h3 class="alert alert-warning" style="text-align:center;">
+            {{session('message')}}
+        </h3>
+    @endif
+    <br>
+
     <h1 style="text-align:center;">Cadastrar Concurso</h1>
+    <br>
 
     <div class="">
 
@@ -21,11 +35,11 @@
             <input type="text" class="form-control" name="identificador" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
         </div>
 
-
-            <table class="table table-striped">
+            <table class="">
                 <thead>
                     <h2 style="text-align:center;">Insira os Números Abaixo</h2>
                 </thead>
+
                 <tr>
                     <td><input type="number" name="nj1" id="nj1" placeholder="01"></td>
                     <td><input type="number" name="nj2" id="nj2" placeholder="02"></td>
@@ -73,7 +87,7 @@
                     </div>
                     <div class="btn-group mr-2" role="group" aria-label="Second group">
                         <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
-                            <a href=" {{ route('cartoes.index')}} "> Voltar </a>
+                            <a href=" {{ route('cartoes.home')}} "> Voltar </a>
                         </button>
                     </div>
                 </div>
