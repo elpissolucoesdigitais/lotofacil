@@ -4,8 +4,6 @@
 
 <link rel="stylesheet" href="">
 
-
-
     <br>
 
     @if (session('message'))
@@ -40,13 +38,27 @@
                     <h2 style="text-align:center;">Insira os Números Abaixo</h2>
                 </thead>
 
-                <tr>
-                    <td><input type="number" name="numerojogado[0]"  placeholder="01"></td>
-                    <td><input type="number" name="numerojogado[1]"  placeholder="02"></td>
-                    <td><input type="number" name="numerojogado[2]"  placeholder="03"></td>
-                    <td><input type="number" name="numerojogado[3]"  placeholder="04"></td>
-                    <td><input type="number" name="numerojogado[4]" placeholder="05"></td>
-                </tr>
+                @php
+                    $s = 0;
+
+                @endphp
+                <center>
+
+                <div class="table_form">
+                    @for ($i = 1 ; $i < 6; $i++)
+                        @for ($j = 1 ; $j < 5; $j++)
+                            @php
+                                $s = $s + 1;
+                            @endphp
+                            <input type="number" name="numerojogado[]" value="numerojogado[{{$s}}]" placeholder="{{$s}}">
+                        @endfor
+                        <br>
+                    @endfor
+                </div>
+
+            </center>
+
+
             </table>
 
             <!--

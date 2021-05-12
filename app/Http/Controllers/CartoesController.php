@@ -56,8 +56,14 @@ class CartoesController extends Controller
      */
     public function store(StoreCadRequest $request)
     {
-        $cartoes = $request->all();
-        Cartoes::create($cartoes);
+
+        $cartoes = new Cartoes();
+
+        $cartoes->identificador = request('identificador');
+        $cartoes->numerojogado = request('numerojogado');
+        $cartoes->save();
+
+
         //$cartoes = Cartoes::create($request->all());
         //dd($cartoes);
 
