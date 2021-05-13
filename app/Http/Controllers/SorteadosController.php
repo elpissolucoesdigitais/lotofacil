@@ -89,6 +89,8 @@ class SorteadosController extends Controller
         }
 
         return view('pages.numerossorteados.edit', compact('sorteado'));
+
+
     }
 
     /**

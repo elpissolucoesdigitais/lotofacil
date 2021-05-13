@@ -26,7 +26,9 @@ class StoreSorteadosRequest extends FormRequest
     {
         $id=$this->segment(3);
         return [
-            'identificador' => "required|min:1|max:10|unique:sorteados,id,{$id},id"
+            'identificador' => "required|min:1|max:10 |unique:cartoes,id,{$id},id",
+            //git
         ];
     }
+
 }
