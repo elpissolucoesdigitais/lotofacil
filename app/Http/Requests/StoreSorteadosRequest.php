@@ -24,15 +24,9 @@ class StoreSorteadosRequest extends FormRequest
      */
     public function rules()
     {
+        $id=$this->segment(3);
         return [
-            'identificador' => 'required|min:1|max:10'
-        ];
-    }
-
-    public function messages()
-    {
-        return[
-            'identificador.required' => 'Insira o Identificador'
+            'identificador' => "required|min:1|max:10|unique:sorteados,id,{$id},id"
         ];
     }
 }
