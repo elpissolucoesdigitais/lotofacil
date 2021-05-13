@@ -102,15 +102,16 @@ class SorteadosController extends Controller
     {
         //if (!$sorteado = $this->repository->find($id))
         //   return redirect()->back();
-
+        
         if(!$sorteado = Sorteados::find($id)){
             return redirect()->back();
         }
         $sorteados = new Sorteados();
-
+        $sorteados = Sorteados::findOrFail($id);
         $sorteados->identificador = request('identificador');
         $sorteados->numerosorteado = request('numerosorteado');
-        $sorteados->save();
+
+        $sorteados->update($request->all());
 
 
         return redirect()

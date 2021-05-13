@@ -119,11 +119,16 @@ class CartoesController extends Controller
     {
         //if (!$cartao = $this->repository->find($id))
         //   return redirect()->back();
+        $cartoes = new Cartoes();
 
         if(!$cartao = Cartoes::find($id)){
             return redirect()->back();
         }
-        $cartao->update($request->all());
+        $cartoes = Cartoes::findOrFail($id);
+        $cartoes->identificador = request('identificador');
+        $cartoes->numerojogado = request('numerojogado');
+
+        $cartoes->update($request->all());
 
         return redirect()
                 ->route('cartoes.index')
