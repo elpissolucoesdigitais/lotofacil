@@ -25,14 +25,14 @@ class StoreSorteadosRequest extends FormRequest
     public function rules()
     {
         return [
-            'identificador' => 'required|min:1|max:10',
+            'identificador' => 'required|min:1|max:10'
         ];
     }
 
     public function messages()
     {
         return[
-            'identificador.required' => 'Insira o Identificador',
+            'identificador.required' => 'Insira o Identificador'
         ];
     }
 }
