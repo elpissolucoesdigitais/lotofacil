@@ -42,19 +42,19 @@
                     $s = 0;
 
                 @endphp
-                <center>
 
-                <div class="table_form">
-                    @for ($i = 1 ; $i < 3; $i++)
-                        @for ($j = 1 ; $j < 3; $j++)
-                            @php
-                                $s = $s + 1;
-                            @endphp
-                            <input type="number" name="numerojogado[]" value="numerojogado[{{$s}}]" placeholder="{{$s}}">
+                <center>
+                    <div class="table_form">
+                        @for ($i = 1 ; $i < 6; $i++)
+                            @for ($j = 1 ; $j < 5; $j++)
+                                @php
+                                    $s = $s + 1;
+                                @endphp
+                                <input type="number" name="numerojogado[]" value="numerojogado[{{$s}}]" placeholder="{{$s}}">
+                            @endfor
+                            <br>
                         @endfor
-                        <br>
-                    @endfor
-                </div>
+                    </div>
                 </center>
 
 

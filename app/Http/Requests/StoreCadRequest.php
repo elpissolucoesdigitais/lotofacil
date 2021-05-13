@@ -25,7 +25,7 @@ class StoreCadRequest extends FormRequest
     public function rules()
     {
         return [
-            'identificador' => 'required|min:1|max:10',
+            'identificador' => 'required|min:1|max:10'
 
         ];
     }
@@ -33,7 +33,7 @@ class StoreCadRequest extends FormRequest
     public function messages()
     {
         return[
-            'identificador.required' => 'Insira o Identificador',
+            'identificador.required' => 'Insira o Identificador'
         ];
     }
 }

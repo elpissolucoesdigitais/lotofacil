@@ -20,34 +20,19 @@
             </div>
 
             <table>
-                <tr>
-                    <td><input type="number" name="nj1" id="nj1" value="{{$cartao ->nj1}}" ></td>
-                    <td><input type="number" name="nj2" id="nj2" value="{{$cartao ->nj2}}"></td>
-                    <td><input type="number" name="nj3" id="nj3" value="{{$cartao ->nj3}}"></td>
-                    <td><input type="number" name="nj4" id="nj4" value="{{$cartao ->nj4}}"></td>
-                    <td><input type="number" name="nj5" id="nj5" value="{{$cartao ->nj5}}"></td>
-                </tr>
-                <tr>
-                    <td><input type="number" name="nj6" id="nj6" value="{{$cartao ->nj6}}"></td>
-                    <td><input type="number" name="nj7" id="nj7" value="{{$cartao ->nj7}}"></td>
-                    <td><input type="number" name="nj8" id="nj8" value="{{$cartao ->nj8}}"></td>
-                    <td><input type="number" name="nj9" id="nj9" value="{{$cartao ->nj9}}"></td>
-                    <td><input type="number" name="nj10" id="nj10" value="{{$cartao ->nj10}}"></td>
-                </tr>
-                <tr>
-                    <td><input type="number" name="nj11" id="nj11" value="{{$cartao ->nj11}}"></td>
-                    <td><input type="number" name="nj12" id="nj12" value="{{$cartao ->nj12}}"></td>
-                    <td><input type="number" name="nj13" id="nj13" value="{{$cartao ->nj13}}"></td>
-                    <td><input type="number" name="nj14" id="nj14" value="{{$cartao ->nj14}}"></td>
-                    <td><input type="number" name="nj15" id="nj15" value="{{$cartao ->nj15}}"></td>
-                </tr>
-                <tr>
-                    <td><input type="number" name="nj16" id="nj16" value="{{$cartao ->nj16}}"></td>
-                    <td><input type="number" name="nj17" id="nj17" value="{{$cartao ->nj17}}"></td>
-                    <td><input type="number" name="nj18" id="nj18" value="{{$cartao ->nj18}}"></td>
-                    <td><input type="number" name="nj19" id="nj19" value="{{$cartao ->nj19}}"></td>
-                    <td><input type="number" name="nj20" id="nj20" value="{{$cartao ->nj20}}"></td>
-                </tr>
+                @php
+                    $s = 0;
+                @endphp
+                @for ($i = 0 ; $i < 5; $i++)
+                    @for ($j = 0 ; $j < 4; $j++)
+
+                        <input type="number" name="numerojogado[]" value="{{$cartao->numerojogado[$s]}}" placeholder="{{$s}}">
+                        @php
+                            $s = $s + 1;
+                        @endphp
+                    @endfor
+                    <br>
+                @endfor
             </table>
         </table>
         <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">Editar</button>
