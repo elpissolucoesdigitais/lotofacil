@@ -34,9 +34,10 @@
         <tbody>
             @foreach ( $cartoes as $cartao)
                 <tr>
-                    <th scope="row">{{ $cartao ->id}}</th>
-                    <td>{{ $cartao ->identificador}}</td>
-                    <td>{{ $cartao ->created_at}}</td>
+                    <th scope="row">{{ $cartao->id}}</th>
+                    <td>{{ $cartao->identificador}}</td>
+                    <td>{{ $cartao->created_at}}</td>
+                    
                     <td width="30%">
                         <button type="button" class="btn btn-success">
                             <a href="{{ route('cartoes.show', $cartao ->id)}}" >Vizualizar</a>

@@ -32,8 +32,11 @@ class StoreCadRequest extends FormRequest
 
     public function messages()
     {
+        $id=$this->segment(3);
         return[
-            'identificador.required' => 'Insira o Identificador'
+
+
+            'identificador' =>"required |unique:cartoes,id,{$id},id " ,
         ];
     }
 }

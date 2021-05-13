@@ -4,6 +4,7 @@ use Hamcrest\Type\IsInteger;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Unique;
 
 class CreateCartoesTable extends Migration
 {
@@ -16,8 +17,8 @@ class CreateCartoesTable extends Migration
     {
         Schema::create('cartoes', function (Blueprint $table) {
             $table->id();
-            $table->integer('identificador');
-            $table->json('numerojogado');
+            $table->integer('identificador')->Unique();
+            $table->string('numerojogado')->nullable();
             $table->timestamps();
         });
     }
