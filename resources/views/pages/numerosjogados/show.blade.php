@@ -3,35 +3,18 @@
 @section('show')
     <table class="table table-striped">
       <h1>Números Jogados</h1>
+      <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Identificador</th>
+            <th scope="col">Data de Cadastro</th>
+            <th scope="col">Ação</th>
+        </tr>
+        </thead>
         <tbody>
             <tr>
-                <td>{{ $cartao ->nj1}}</td>
-                <td>{{ $cartao ->nj2}}</td>
-                <td>{{ $cartao ->nj3}}</td>
-                <td>{{ $cartao ->nj4}}</td>
-                <td>{{ $cartao ->nj5}}</td>
-            </tr>
-            <tr>
-                <td>{{ $cartao ->nj6}}</td>
-                <td>{{ $cartao ->nj7}}</td>
-                <td>{{ $cartao ->nj8}}</td>
-                <td>{{ $cartao ->nj9}}</td>
-                <td>{{ $cartao ->nj10}}</td>
-            </tr>
-            <tr>
-
-                <td>{{ $cartao ->nj11}}</td>
-                <td>{{ $cartao ->nj12}}</td>
-                <td>{{ $cartao ->nj13}}</td>
-                <td>{{ $cartao ->nj14}}</td>
-                <td>{{ $cartao ->nj15}}</td>
-            </tr>
-            <tr>
-                <td>{{ $cartao ->nj16}}</td>
-                <td>{{ $cartao ->nj17}}</td>
-                <td>{{ $cartao ->nj18}}</td>
-                <td>{{ $cartao ->nj19}}</td>
-                <td>{{ $cartao ->nj20}}</td>
+                <td>{{$cartao->id}}</td>
+                <td>{{ $cartao->numerojogado[0]}}</td>
             </tr>
         </tbody>
     </table>
