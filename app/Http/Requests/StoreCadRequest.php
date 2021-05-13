@@ -22,11 +22,13 @@ class StoreCadRequest extends FormRequest
      *
      * @return array
      */
-    public function rules(){
-        $id=$this->segment(3);
+    public function rules()
+    {
+        $id=$this->segment(1);
         return [
-            'identificador' => "required|min:1|unique:cartoes,id,{$id},id",
-            'numerojogado' => "required|min:1|max:100"
+            'identificador' => "required|min:1|max:10 |unique:cartoes,id,{$id},id",
+
         ];
     }
+
 }
