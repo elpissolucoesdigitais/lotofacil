@@ -16,8 +16,8 @@ class CreateCartoesTable extends Migration
     public function up()
     {
         Schema::create('cartoes', function (Blueprint $table) {
-            $table->id();
-            $table->integer('identificador')->Unique();
+            $table->bigIncrements('id');
+            $table->string('identificador')->unique();
             $table->json('numerojogado');
             $table->timestamps();
         });
