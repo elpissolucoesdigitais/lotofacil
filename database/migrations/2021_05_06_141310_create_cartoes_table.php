@@ -18,6 +18,7 @@ class CreateCartoesTable extends Migration
         Schema::create('cartoes', function (Blueprint $table) {
             $table->id();
             $table->integer('identificador')->unique();
+
             $table->json('numerojogado');
             $table->timestamps();
         });

@@ -27,7 +27,10 @@ class StoreCadRequest extends FormRequest
         $identificador=$this->segment(3);
         return [
             'identificador' => "required|min:1|max:10 |unique:cartoes,identificador,{$identificador},identificador",
+
         ];
+
+        return $rules;
     }
 
 }

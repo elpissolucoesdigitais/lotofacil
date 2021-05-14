@@ -26,7 +26,7 @@ class StoreSorteadosRequest extends FormRequest
     {
         $identificador=$this->segment(3);
         return [
-            'identificador' => "required|min:1|max:10|unique:sorteados,identificador,{$identificador},identificador"
+            'identificador' => "required|min:1|max:10|unique:sorteados,identificador,{$identificador},identificador"      
         ];
     }
 
