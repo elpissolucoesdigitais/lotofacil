@@ -27,7 +27,7 @@
                 @endforeach
             </div>
         @endif
-        <form action=" {{ route('cartoes.store')}} " method="POST">
+        <form action=" {{ route('sorteados.store')}} " method="POST">
             @csrf
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="identificador" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">

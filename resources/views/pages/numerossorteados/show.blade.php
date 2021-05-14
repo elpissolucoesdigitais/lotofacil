@@ -2,7 +2,8 @@
 
 @section('show')
     <table class="table table-striped">
-      <h1>Números Sorteados</h1>
+        <br>
+      <h1 style="text-align: center;"> Números Sorteados</h1>
         <thead>
             <tr>
                 <th scope="col">#</th>

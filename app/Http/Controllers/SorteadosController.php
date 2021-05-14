@@ -83,7 +83,7 @@ class SorteadosController extends Controller
     {
         //if(!$sorteado = $this->repository->find($id))
         //    return redirect()->back();
-
+        $sorteado = Sorteados::findOrFail($id);
         if(!$sorteado = Sorteados::find($id)){
             return redirect()->route('sorteados.index');
         }
@@ -100,20 +100,24 @@ class SorteadosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreSorteadosRequest $request, $id)
+    public function update(Request $request, $id)
     {
         //if (!$sorteado = $this->repository->find($id))
         //   return redirect()->back();
-        
+
+        $this->validate($request, array(
+            'identificador' => "required|min:1|max:10|unique:sorteados,identificador,$id",
+        ));
+
         if(!$sorteado = Sorteados::find($id)){
             return redirect()->back();
         }
-        $sorteados = new Sorteados();
-        $sorteados = Sorteados::findOrFail($id);
-        $sorteados->identificador = request('identificador');
-        $sorteados->numerosorteado = request('numerosorteado');
+        $sorteado = new Sorteados();
+        $sorteado = Sorteados::findOrFail($id);
+        $sorteado->identificador = request('identificador');
+        $sorteado->numerosorteado = request('numerosorteado');
 
-        $sorteados->update($request->all());
+        $sorteado->update($request->all());
 
 
         return redirect()

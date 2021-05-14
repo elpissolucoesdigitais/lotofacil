@@ -24,9 +24,9 @@ class StoreCadRequest extends FormRequest
      */
     public function rules()
     {
-        $id=$this->segment(1);
+        $identificador=$this->segment(3);
         return [
-            'identificador' => "required|min:1|max:10 |unique:cartoes,id,{$id},id",
+            'identificador' => "required|min:1|max:10 |unique:cartoes,identificador,{$identificador},identificador",
         ];
     }
 

@@ -2,7 +2,9 @@
 
 @section('show')
     <table class="table table-striped">
-      <h1>Números Jogados</h1>
+        <br>
+
+        <h1 style="text-align: center;">Números Jogados</h1>
         <thead>
             <tr>
                 <th scope="col">#</th>

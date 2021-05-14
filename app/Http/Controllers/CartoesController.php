@@ -115,10 +115,15 @@ class CartoesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreCadRequest $request, $id)
+    public function update(Request $request, $id)
     {
         //if (!$cartao = $this->repository->find($id))
         //   return redirect()->back();
+
+        $this->validate($request, array(
+            'identificador' => "required|min:1|max:10|unique:cartoes,identificador,$id",
+        ));
+
         $cartoes = new Cartoes();
 
         if(!$cartao = Cartoes::find($id)){
