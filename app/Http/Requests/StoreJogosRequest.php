@@ -28,6 +28,8 @@ class StoreJogosRequest extends FormRequest
         return [
             'identificador_jogo' => "required|min:1|max:10 |unique:jogos,identificador_jogo,{$identificador_jogo},identificador_jogo",
         ];
+
+        return $rules;
     }
 
 }
