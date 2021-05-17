@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSorteadosRequest extends FormRequest
+class StoreJogosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class StoreSorteadosRequest extends FormRequest
      */
     public function rules()
     {
-        $identificador=$this->segment(3);
+        $identificador_jogo=$this->segment(3);
         return [
-            'identificador' => "required|min:1|max:10|unique:sorteados,identificador,{$identificador},identificador"
+            'identificador_jogo' => "required|min:1|max:10 |unique:jogos,identificador_jogo,{$identificador_jogo},identificador_jogo",
         ];
     }
 

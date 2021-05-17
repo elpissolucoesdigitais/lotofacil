@@ -18,15 +18,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">{{ $cartao->id}}</th>
-                        <td>{{ $cartao->identificador}}</td>
-                        <td>{{ $cartao->created_at}}</td>
+                        <th scope="row">{{ $jogo->id}}</th>
+                        <td>{{ $jogo->identificador_jogo}}</td>
+                        <td>{{ $jogo->created_at}}</td>
 
                     </tr>
             </tbody>
         </table>
 
-        <form action=" {{ route('cartoes.update', $cartao->id)}}  " method="POST">
+        <form action=" {{ route('cartoes.update', $jogo->id)}}  " method="POST">
             @method('put')
             @csrf
 
@@ -41,7 +41,7 @@
             <center>
 
             <div class="input-group mb-3">
-                <input type="text" class="form-control" name="identificador" id="identificador" value="{{$cartao ->identificador}}" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" name="identificador_jogo" id="identificador_jogo" value="{{$jogo ->identificador_jogo}}" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
             </div>
 
             @php
@@ -49,7 +49,7 @@
             @endphp
             @for ($i = 0 ; $i < 5; $i++)
                 @for ($j = 0 ; $j < 4; $j++)
-                    <input type="number" name="numerojogado[]" value="{{$cartao->numerojogado[$s]}}" placeholder="{{$s}}">
+                    <input type="number" name="numerojogado[]" value="{{$jogo->numerojogado[$s]}}" placeholder="{{$s}}">
                     @php
                         $s = $s + 1;
                     @endphp

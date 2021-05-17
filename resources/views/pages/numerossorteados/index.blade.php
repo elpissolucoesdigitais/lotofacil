@@ -39,19 +39,19 @@
         </tr>
         </thead>
         <tbody>
-            @foreach ( $sorteados as $sorteado)
+            @foreach ( $concursos as $concurso)
                 <tr>
-                    <th scope="row">{{ $sorteado ->id}}</th>
-                    <td>{{ $sorteado ->identificador}}</td>
-                    <td>{{ $sorteado ->created_at}}</td>
+                    <th scope="row">{{ $concurso ->id}}</th>
+                    <td>{{ $concurso ->identificador_concurso}}</td>
+                    <td>{{ $concurso ->created_at}}</td>
                     <td width="30%">
                         <button type="button" class="btn btn-success">
-                            <a href="{{ route('sorteados.show', $sorteado->id)}}" >Vizualizar</a>
+                            <a href="{{ route('sorteados.show', $concurso->id)}}" >Vizualizar</a>
                         </button>
                         <button type="button" class="btn btn-primary">
-                            <a href="{{ route('sorteados.edit', $sorteado->id)}}">Editar</a>
+                            <a href="{{ route('sorteados.edit', $concurso->id)}}">Editar</a>
                         </button>
-                        <form action="{{ route('sorteados.destroy', $sorteado->id)}}" method="post">
+                        <form action="{{ route('sorteados.destroy', $concurso->id)}}" method="post">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn btn-danger">Apagar</button>

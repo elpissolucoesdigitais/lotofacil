@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cartoes extends Model
+class Jogos extends Model
 {
     use HasFactory;
 
-    protected $table = 'cartoes';
+    protected $table = 'jogos';
 
-    protected $fillable = ['identificador'];
+    protected $fillable = ['identificador_jogo'];
     protected $casts = [
         'numerojogado' => 'array'
     ];

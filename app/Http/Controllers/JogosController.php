@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCadRequest;
-use App\Models\Cartoes;
+use App\Http\Requests\StoreJogosRequest;
+use App\Models\Jogos;
 use Illuminate\Http\Request;
 
-class CartoesController extends Controller
+class JogosController extends Controller
 {
     private $repository;
-    public function __construct(Cartoes $cartao)
+    public function __construct(Jogos $jogo)
     {
-        $this->repository = $cartao;
+        $this->repository = $jogo;
     }
     /**
      * Display a listing of the resource.
@@ -20,9 +20,9 @@ class CartoesController extends Controller
      */
     public function index()
     {
-        $cartoes = $this->repository->all();
+        $jogos = $this->repository->all();
 
-        return view('pages.numerosjogados.index', compact('cartoes'));
+        return view('pages.numerosjogados.index', compact('jogos'));
 
 
     }
@@ -54,14 +54,13 @@ class CartoesController extends Controller
      * @param  App\Http\Requests\StoreCadRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCadRequest $request)
+    public function store(StoreJogosRequest $request)
     {
 
-        $cartoes = new Cartoes();
-
-        $cartoes->identificador = request('identificador');
-        $cartoes->numerojogado = request('numerojogado');
-        $cartoes->save();
+        $jogos = new Jogos();
+        $jogos->identificador_jogo = request('identificador_jogo');
+        $jogos->numerojogado = request('numerojogado');
+        $jogos->save();
 
 
         //$cartoes = Cartoes::create($request->all());
@@ -80,13 +79,13 @@ class CartoesController extends Controller
      */
     public function show($id)
     {
-        // $cartao = Cartoes::where('id', $id)->first();
+        // $jogo = Cartoes::where('id', $id)->first();
 
-        $cartao = Cartoes::find($id);
+        $jogo = Jogos::find($id);
 
-        // return redirect()->route('cartoes.show', compact('cartao'));
+        // return redirect()->route('cartoes.show', compact('jogo'));
 
-        return view('pages.numerosjogados.show', compact('cartao'));
+        return view('pages.numerosjogados.show', compact('jogo'));
 
     }
 
@@ -98,14 +97,14 @@ class CartoesController extends Controller
      */
     public function edit($id)
     {
-        //if(!$cartao = $this->repository->find($id))
+        //if(!$jogo = $this->repository->find($id))
         //    return redirect()->back();
 
-        if(!$cartao = Cartoes::find($id)){
+        if(!$jogo = Jogos::find($id)){
             return redirect()->route('cartoes.index');
         }
 
-        return view('pages.numerosjogados.edit', compact('cartao'));
+        return view('pages.numerosjogados.edit', compact('jogo'));
     }
 
     /**
@@ -117,23 +116,23 @@ class CartoesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //if (!$cartao = $this->repository->find($id))
+        //if (!$jogo = $this->repository->find($id))
         //   return redirect()->back();
 
         $this->validate($request, array(
-            'identificador' => "required|min:1|max:10|unique:cartoes,identificador,$id",
+            'identificador_jogo' => "required|min:1|max:10|unique:jogos,identificador_jogo,$id",
         ));
 
-        $cartoes = new Cartoes();
+        $jogos = new Jogos();
 
-        if(!$cartao = Cartoes::find($id)){
+        if(!$jogo = Jogos::find($id)){
             return redirect()->back();
         }
-        $cartoes = Cartoes::findOrFail($id);
-        $cartoes->identificador = request('identificador');
-        $cartoes->numerojogado = request('numerojogado');
+        $jogos = Jogos::findOrFail($id);
+        $jogos->identificador_jogo = request('identificador_jogo');
+        $jogos->numerojogado = request('numerojogado');
 
-        $cartoes->update($request->all());
+        $jogos->update($request->all());
 
         return redirect()
                 ->route('cartoes.index')
@@ -150,9 +149,9 @@ class CartoesController extends Controller
     public function destroy($id)
     {
 
-       $cartao = Cartoes::find($id);
+       $jogo = Jogos::find($id);
 
-        $cartao->delete();
+        $jogo->delete();
 
         return redirect()
             ->route('cartoes.index')
@@ -160,9 +159,9 @@ class CartoesController extends Controller
     }
 
     public function search(Request $request){
-        $cartoes = Cartoes::where('identificador', 'LIKE', "%{$request->search}%")
+        $jogos = Jogos::where('identificador_jogo', 'LIKE', "%{$request->search}%")
                             ->paginate();
 
-        return view('pages.numerosjogados.index', compact('cartoes'));
+        return view('pages.numerosjogados.index', compact('jogos'));
     }
 }

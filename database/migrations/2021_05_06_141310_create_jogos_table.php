@@ -1,10 +1,12 @@
 <?php
 
+use Hamcrest\Type\IsInteger;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Unique;
 
-class CreateSorteadosTable extends Migration
+class CreateJogosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +15,10 @@ class CreateSorteadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sorteados', function (Blueprint $table) {
-            $table->id();
-            $table->integer('identificador')->unique();
-            $table->json('numerosorteado');
+        Schema::create('jogos', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('identificador_jogo')->unique();
+            $table->json('numerojogado');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateSorteadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sorteados');
+        Schema::dropIfExists('jogos');
     }
 }
