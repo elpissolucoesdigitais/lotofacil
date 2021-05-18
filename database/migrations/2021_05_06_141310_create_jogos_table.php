@@ -17,9 +17,11 @@ class CreateJogosTable extends Migration
     {
         Schema::create('jogos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('concurso_id');
             $table->integer('identificador_jogo')->unique();
             $table->json('numerojogado');
             $table->timestamps();
+            $table->foreign('concurso_id')->references('id')->on('concursos')->onDelete('cascade');
         });
     }
 

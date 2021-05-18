@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreJogosRequest;
+use App\Models\Concursos;
 use App\Models\Jogos;
 use Illuminate\Http\Request;
 
 class JogosController extends Controller
 {
-    private $repository;
-    public function __construct(Jogos $jogo)
+    private $repositoryJogo;
+    private $repositoryConcurso;
+    public function __construct(Jogos $jogo, Concursos $concurso)
     {
-        $this->repository = $jogo;
+        $this->repositoryJogo = $jogo;
+        $this->repositoryConcurso = $concurso;
     }
     /**
      * Display a listing of the resource.
@@ -20,7 +23,8 @@ class JogosController extends Controller
      */
     public function index()
     {
-        $jogos = $this->repository->all();
+        $jogos = $this->repositoryJogo->all();
+        $concurso = $this->repositoryConcurso->all();
 
         return view('pages.numerosjogados.index', compact('jogos'));
 

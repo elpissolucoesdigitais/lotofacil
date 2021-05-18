@@ -16,4 +16,9 @@ class Jogos extends Model
         'numerojogado' => 'array'
     ];
 
+    public function concursos(){
+        return $this->hasMany(Concursos::class);
+    }
+
+
 }

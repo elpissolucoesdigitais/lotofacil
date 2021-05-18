@@ -15,11 +15,11 @@ class CreateConcursosTable extends Migration
     {
         Schema::create('concursos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('jogo_id');
+            //$table->unsignedBigInteger('jogo_id');
             $table->integer('identificador_concurso')->unique();
             $table->json('numerosorteado');
             $table->timestamps();
-            $table->foreign('jogo_id')->references('id')->on('jogos')->onDelete('cascade');
+            //$table->foreign('jogo_id')->references('id')->on('jogos')->onDelete('cascade');
         });
     }
 

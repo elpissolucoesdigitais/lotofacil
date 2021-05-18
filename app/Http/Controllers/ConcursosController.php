@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class ConcursosController extends Controller
 {
-    private $repository;
+    private $repositoryConcurso;
     public function __construct(Concursos $concurso)
     {
-        $this->repository = $concurso;
+        $this->repositoryConcurso = $concurso;
     }
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class ConcursosController extends Controller
      */
     public function index()
     {
-        $concursos = $this->repository->all();
+        $concursos = $this->repositoryConcurso->all();
 
         return view('pages.numerossorteados.index', compact('concursos'));
     }

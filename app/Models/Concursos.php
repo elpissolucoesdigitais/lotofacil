@@ -16,4 +16,8 @@ class Concursos extends Model
         'numerosorteado' => 'array'
     ];
 
+    public function jogos(){
+        return $this->hasOne(Jogos::class);
+    }
+
 }
