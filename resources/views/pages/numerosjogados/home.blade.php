@@ -11,10 +11,10 @@
         <div class="d-flex justify-content-center">
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <a href="{{ route('cartoes.index')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Seus Concursos</a>
+                        <a href="{{ route('cartoes.index')}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cartões Jogados</a>
                 </div>
                 <div class="btn-group mr-2" role="group" aria-label="Second group">
-                        <a href="{{ route('cartoes.create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cadastrar Cartões</a>
+                        <a href="{{ route('cartoes.create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cadastrar Cartões Jogados</a>
                 </div>
             </div>
         </div>
@@ -24,13 +24,13 @@
         <div class="d-flex justify-content-center">
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group mr-2" role="group" aria-label="Second group">
-                    <a href="{{ route('sorteados.index') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cartões Sorteados</a>
+                    <a href="{{ route('sorteados.index') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Concursos</a>
                 </div>
             </div>
 
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group mr-2" role="group" aria-label="Second group">
-                    <a href="{{ route('sorteados.create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cadastrar Cartões Sorteados</a>
+                    <a href="{{ route('sorteados.create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cadastrar Concurso</a>
                 </div>
             </div>
         </div>

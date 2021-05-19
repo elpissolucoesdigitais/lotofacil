@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreSorteadosRequest;
-use App\Models\Sorteados;
+use App\Http\Requests\StoreConcursosRequest;
+use App\Models\Concursos;
 use Illuminate\Http\Request;
 
-class SorteadosController extends Controller
+class ConcursosController extends Controller
 {
-    private $repository;
-    public function __construct(Sorteados $sorteado)
+    private $repositoryConcurso;
+    public function __construct(Concursos $concurso)
     {
-        $this->repository = $sorteado;
+        $this->repositoryConcurso = $concurso;
     }
     /**
      * Display a listing of the resource.
@@ -20,9 +20,9 @@ class SorteadosController extends Controller
      */
     public function index()
     {
-        $sorteados = $this->repository->all();
+        $concursos = $this->repositoryConcurso->all();
 
-        return view('pages.numerossorteados.index', compact('sorteados'));
+        return view('pages.numerossorteados.index', compact('concursos'));
     }
 
     /**
@@ -41,15 +41,15 @@ class SorteadosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSorteadosRequest $request)
+    public function store(StoreConcursosRequest $request)
     {
-        $sorteados = new Sorteados();
+        $concursos = new Concursos();
 
-        $sorteados->identificador = request('identificador');
-        $sorteados->numerosorteado = request('numerosorteado');
-        $sorteados->save();
-        //$sorteados = Sorteados::create($request->all());
-        //dd($sorteados);
+        $concursos->identificador_concurso = request('identificador_concurso');
+        $concursos->numerosorteado = request('numerosorteado');
+        $concursos->save();
+        //$concursos = conc$concursos::create($request->all());
+        //dd($concursos);
 
         return redirect()
                     ->route('sorteados.index')
@@ -64,13 +64,13 @@ class SorteadosController extends Controller
      */
     public function show($id)
     {
-        // $sorteado = Sorteados::where('id', $id)->first();
+        // $concurso = Concursos::where('id', $id)->first();
 
-        $sorteado = Sorteados::find($id);
+        $concurso = Concursos::find($id);
 
         // return redirect()->route('cartoes.show', compact('cartao'));
 
-        return view('pages.numerossorteados.show', compact('sorteado'));
+        return view('pages.numerossorteados.show', compact('concurso'));
     }
 
     /**
@@ -81,14 +81,14 @@ class SorteadosController extends Controller
      */
     public function edit($id)
     {
-        //if(!$sorteado = $this->repository->find($id))
+        //if(!$concurso = $this->repository->find($id))
         //    return redirect()->back();
-
-        if(!$sorteado = Sorteados::find($id)){
+        $concurso = Concursos::findOrFail($id);
+        if(!$concurso = Concursos::find($id)){
             return redirect()->route('sorteados.index');
         }
 
-        return view('pages.numerossorteados.edit', compact('sorteado'));
+        return view('pages.numerossorteados.edit', compact('concurso'));
 
 
     }
@@ -100,20 +100,24 @@ class SorteadosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreSorteadosRequest $request, $id)
+    public function update(Request $request, $id)
     {
         //if (!$sorteado = $this->repository->find($id))
         //   return redirect()->back();
-        
-        if(!$sorteado = Sorteados::find($id)){
+
+        $this->validate($request, array(
+            'identificador_concurso' => "required|min:1|max:10|unique:concursos,identificador_concurso,$id",
+        ));
+
+        if(!$concurso = Concursos::find($id)){
             return redirect()->back();
         }
-        $sorteados = new Sorteados();
-        $sorteados = Sorteados::findOrFail($id);
-        $sorteados->identificador = request('identificador');
-        $sorteados->numerosorteado = request('numerosorteado');
+        $concurso = new Concursos();
+        $concurso = Concursos::findOrFail($id);
+        $concurso->identificador_concurso = request('identificador_concurso');
+        $concurso->numerosorteado = request('numerosorteado');
 
-        $sorteados->update($request->all());
+        $concurso->update($request->all());
 
 
         return redirect()
@@ -129,9 +133,9 @@ class SorteadosController extends Controller
      */
     public function destroy($id)
     {
-        $sorteado = Sorteados::find($id);
+        $concurso = Concursos::find($id);
 
-        $sorteado->delete();
+        $concurso->delete();
 
         return redirect()
             ->route('sorteados.index')
@@ -139,9 +143,9 @@ class SorteadosController extends Controller
     }
 
     public function search(Request $request){
-        $sorteados = Sorteados::where('identificador', 'LIKE', "%{$request->search}%")
+        $concursos = Concursos::where('identificador_concurso', 'LIKE', "%{$request->search}%")
                             ->paginate();
 
-        return view('pages.numerossorteados.index', compact('sorteados'));
+        return view('pages.numerossorteados.index', compact('concursos'));
     }
 }

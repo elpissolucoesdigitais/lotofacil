@@ -13,7 +13,7 @@
     @endif
     <br>
 
-    <h1 style="text-align:center;">Cadastrar Concurso</h1>
+    <h1 style="text-align:center;">Cadastrar Cartão</h1>
     <br>
 
     <div class="">
@@ -27,10 +27,26 @@
                 @endforeach
             </div>
         @endif
+
+
+
         <form action=" {{ route('cartoes.store')}} " method="POST">
             @csrf
             <div class="input-group mb-3">
-                <input type="text" class="form-control" name="identificador" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" name="identificador_jogo" placeholder="Número do Identificador Cartão" aria-label="Número do Concurso" aria-describedby="basic-addon2">
+
+                <div class="dropdown">
+                    <div aria-labelledby="dropdownMenuButton">
+                        <select class="btn btn-secondary dropdown-toggle" name="concurso_id" id="inputConcurso_id">
+                            <option value="">Concurso</option>
+                                @foreach ($concursos as $concurso)
+                                    <option value="{{$concurso->identificador_concurso}}">
+                                        Concurso - {{$concurso->identificador_concurso}}
+                                    </option>
+                                @endforeach
+                        </select>
+                    </div>
+                </div>
             </div>
 
             <table class="">
@@ -71,7 +87,7 @@
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group" aria-label="First group">
                         <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
-                            Cadastrar Concurso
+                            Cadastrar Cartão
                         </button>
                     </div>
                     <div class="btn-group mr-2" role="group" aria-label="Second group">
@@ -83,9 +99,7 @@
             </div>
         </form>
     </div>
+
+    <script
+
 @endsection
-
-
-
-
-

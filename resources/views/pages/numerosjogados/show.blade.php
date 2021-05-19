@@ -2,10 +2,13 @@
 
 @section('show')
     <table class="table table-striped">
-      <h1>Números Jogados</h1>
+        <br>
+
+        <h1 style="text-align: center;">Números Jogados</h1>
         <thead>
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">Concurso</th>
                 <th scope="col">Identificador</th>
                 <th scope="col">Data de Cadastro</th>
                 <th scope="col">Ação</th>
@@ -13,14 +16,15 @@
         </thead>
         <tbody>
             <tr>
-                <th scope="row">{{ $cartao->id}}</th>
-                <td>{{ $cartao->identificador}}</td>
-                <td>{{ $cartao->created_at}}</td>
+                <th scope="row">{{ $jogo->id}}</th>
+                <td>{{ $jogo->concurso_id}}</td>
+                <td>{{ $jogo->identificador_jogo}}</td>
+                <td>{{ $jogo->created_at}}</td>
                 <td width="30%">
                     <button type="button" class="btn btn-primary">
-                        <a href="{{ route('cartoes.edit', $cartao ->id)}}">Editar</a>
+                        <a href="{{ route('cartoes.edit', $jogo ->id)}}">Editar</a>
                     </button>
-                    <form action="{{ route('cartoes.destroy', $cartao ->id)}}" method="post">
+                    <form action="{{ route('cartoes.destroy', $jogo ->id)}}" method="post">
                         @csrf
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger">Apagar</button>
@@ -36,7 +40,7 @@
         @endphp
         @for ($i = 0 ; $i < 5; $i++)
             @for ($j = 0 ; $j < 4; $j++)
-                <input type="number" name="numerojogado[]" value="{{$cartao->numerojogado[$s]}}" placeholder="{{$s}}">
+                <input type="number" name="numerojogado[]" value="{{$jogo->numerojogado[$s]}}" placeholder="{{$s}}">
                 @php
                     $s = $s + 1;
                 @endphp
@@ -52,21 +56,3 @@
     </div>
     </center>
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSorteadosTable extends Migration
+class CreateNumeroserradosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSorteadosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sorteados', function (Blueprint $table) {
-            $table->id();
-            $table->integer('identificador')->unique();
-            $table->json('numerosorteado');
+        Schema::create('numeroserrados', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('jogo_id');
             $table->timestamps();
+            $table->foreign('jogo_id')->references('id')->on('jogos')->onDelete('cascade');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateSorteadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sorteados');
+        Schema::dropIfExists('numeroserrados');
     }
 }

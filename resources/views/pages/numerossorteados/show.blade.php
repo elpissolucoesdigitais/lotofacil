@@ -2,7 +2,8 @@
 
 @section('show')
     <table class="table table-striped">
-      <h1>Números Sorteados</h1>
+        <br>
+      <h1 style="text-align: center;"> Números Sorteados</h1>
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -13,14 +14,14 @@
         </thead>
         <tbody>
             <tr>
-                <th scope="row">{{ $sorteado->id}}</th>
-                <td>{{ $sorteado->identificador}}</td>
-                <td>{{ $sorteado->created_at}}</td>
+                <th scope="row">{{ $concurso->id}}</th>
+                <td>{{ $concurso->identificador_concurso}}</td>
+                <td>{{ $concurso->created_at}}</td>
                 <td width="30%">
                     <button type="button" class="btn btn-primary">
-                        <a href="{{ route('sorteados.edit', $sorteado ->id)}}">Editar</a>
+                        <a href="{{ route('sorteados.edit', $concurso ->id)}}">Editar</a>
                     </button>
-                    <form action="{{ route('sorteados.destroy', $sorteado ->id)}}" method="post">
+                    <form action="{{ route('sorteados.destroy', $concurso ->id)}}" method="post">
                         @csrf
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger">Apagar</button>
@@ -36,7 +37,7 @@
         @endphp
         @for ($i = 0 ; $i < 5; $i++)
             @for ($j = 0 ; $j < 4; $j++)
-                <input type="number" name="numerosorteado[]" value="{{$sorteado->numerosorteado[$s]}}" placeholder="{{$s}}">
+                <input type="number" name="numerosorteado[]" value="{{$concurso->numerosorteado[$s]}}" placeholder="{{$s}}">
                 @php
                     $s = $s + 1;
                 @endphp

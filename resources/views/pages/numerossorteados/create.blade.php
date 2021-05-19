@@ -27,15 +27,15 @@
                 @endforeach
             </div>
         @endif
-        <form action=" {{ route('cartoes.store')}} " method="POST">
+        <form action=" {{ route('sorteados.store')}} " method="POST">
             @csrf
             <div class="input-group mb-3">
-                <input type="text" class="form-control" name="identificador" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" name="identificador_concurso" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
             </div>
 
             <table class="">
                 <thead>
-                    <h2 style="text-align:center;">Insira os Números Abaixo</h2>
+                    <h2 style="text-align:center;">Insira os Números do Concurso Abaixo</h2>
                 </thead>
 
                 @php

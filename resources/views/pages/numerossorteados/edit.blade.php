@@ -10,23 +10,22 @@
             <br>
             <h1 style="text-align:center;">Número Sorteado</h1>
               <thead>
-                  <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Identificador</th>
-                      <th scope="col">Data de Cadastro</th>
-
-                  </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Concurso</th>
+                        <th scope="col">Data de Cadastro</th>
+                    </tr>
               </thead>
               <tbody>
                     <tr>
-                        <th scope="row">{{ $sorteado->id}}</th>
-                        <td>{{ $sorteado->identificador}}</td>
-                        <td>{{ $sorteado->created_at}}</td>
+                        <th scope="row">{{ $concurso->id}}</th>
+                        <td>{{ $concurso->identificador_concurso}}</td>
+                        <td>{{ $concurso->created_at}}</td>
 
                     </tr>
               </tbody>
         </table>
-        <form action=" {{ route('sorteados.update', $sorteado->id)}}  " method="POST">
+        <form action=" {{ route('sorteados.update', $concurso->id)}}  " method="POST">
             @method('put')
             @csrf
 
@@ -39,7 +38,7 @@
             @endif
             <center>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="identificador" id="identificador" value="{{$sorteado->identificador}}" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" name="identificador_concurso" id="identificador_concurso" value="{{$concurso->identificador_concurso}}" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
                 </div>
 
                 @php
@@ -48,7 +47,7 @@
                 @for ($i = 0 ; $i < 5; $i++)
                     @for ($j = 0 ; $j < 4; $j++)
 
-                        <input type="number" name="numerosorteado[]" value="{{$sorteado->numerosorteado[$s]}}">
+                        <input type="number" name="numerosorteado[]" value="{{$concurso->numerosorteado[$s]}}">
                         @php
                             $s = $s + 1;
                         @endphp
