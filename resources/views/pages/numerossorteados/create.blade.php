@@ -35,7 +35,7 @@
 
             <table class="">
                 <thead>
-                    <h2 style="text-align:center;">Insira os Números Abaixo</h2>
+                    <h2 style="text-align:center;">Insira os Números do Concurso Abaixo</h2>
                 </thead>
 
                 @php

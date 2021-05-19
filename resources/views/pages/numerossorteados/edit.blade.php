@@ -10,12 +10,11 @@
             <br>
             <h1 style="text-align:center;">Número Sorteado</h1>
               <thead>
-                  <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Identificador</th>
-                      <th scope="col">Data de Cadastro</th>
-
-                  </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Concurso</th>
+                        <th scope="col">Data de Cadastro</th>
+                    </tr>
               </thead>
               <tbody>
                     <tr>

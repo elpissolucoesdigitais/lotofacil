@@ -11,7 +11,7 @@ class Jogos extends Model
 
     protected $table = 'jogos';
 
-    protected $fillable = ['identificador_jogo'];
+    protected $fillable = ['identificador_jogo', 'concurso_id'];
     protected $casts = [
         'numerojogado' => 'array'
     ];

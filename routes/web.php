@@ -21,7 +21,7 @@ Rotas para os numeros cadastrados
 */
 Route::post('cartoes/search', [JogosController::class, 'search'])->name('cartoes.search');
 Route::resource('cartoes', 'App\Http\Controllers\JogosController');
-Route::get('pages.numerosjogados.home', [JogosController::class, 'home'])->name('cartoes.home');
+Route::get('/', [JogosController::class, 'home'])->name('cartoes.home');
 
 
 /*
@@ -33,9 +33,9 @@ Route::resource('sorteados', 'App\Http\Controllers\ConcursosController');
 
 
 
-Route::get('/', function () {
-    return view('/pages/numerosjogados/home');
-});
+// Route::get('/', function () {
+//     return view('/pages/numerosjogados/home');
+// });
 
 
 

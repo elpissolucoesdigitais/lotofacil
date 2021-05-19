@@ -27,20 +27,26 @@
                 @endforeach
             </div>
         @endif
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown button
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div>
+
+
+
         <form action=" {{ route('cartoes.store')}} " method="POST">
             @csrf
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="identificador_jogo" placeholder="Número do Identificador Cartão" aria-label="Número do Concurso" aria-describedby="basic-addon2">
+
+                <div class="dropdown">
+                    <div aria-labelledby="dropdownMenuButton">
+                        <select class="btn btn-secondary dropdown-toggle" name="concurso_id" id="inputConcurso_id">
+                            <option value="">Concurso</option>
+                                @foreach ($concursos as $concurso)
+                                    <option value="{{$concurso->identificador_concurso}}">
+                                        Concurso - {{$concurso->identificador_concurso}}
+                                    </option>
+                                @endforeach
+                        </select>
+                    </div>
+                </div>
             </div>
 
             <table class="">
@@ -93,9 +99,7 @@
             </div>
         </form>
     </div>
+
+    <script
+
 @endsection
-
-
-
-
-

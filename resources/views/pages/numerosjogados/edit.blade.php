@@ -11,14 +11,15 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Identificador</th>
-                        <th scope="col">Data de Cadastro</th>
-
+                <th scope="col">Concurso</th>
+                <th scope="col">Identificador</th>
+                <th scope="col">Data de Cadastro</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">{{ $jogo->id}}</th>
+                        <td>{{ $jogo->concurso_id}}</td>
                         <td>{{ $jogo->identificador_jogo}}</td>
                         <td>{{ $jogo->created_at}}</td>
 
@@ -42,6 +43,19 @@
 
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="identificador_jogo" id="identificador_jogo" value="{{$jogo ->identificador_jogo}}" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
+                <div class="dropdown">
+                    <div aria-labelledby="dropdownMenuButton">
+                        <select class="btn btn-secondary dropdown-toggle" name="concurso_id" id="inputConcurso_id">
+                            <option value="">Concurso</option>
+                                @foreach ($concursos as $concurso)
+                                    <option value="{{$concurso->identificador_concurso}}">
+                                        Concurso - {{$concurso->identificador_concurso}}
+                                    </option>
+                                @endforeach
+                        </select>
+                    </div>
+                </div>
+
             </div>
 
             @php

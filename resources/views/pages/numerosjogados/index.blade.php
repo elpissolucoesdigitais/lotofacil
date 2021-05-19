@@ -26,6 +26,7 @@
         <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">Concurso</th>
             <th scope="col">Identificador</th>
             <th scope="col">Data de Cadastro</th>
             <th scope="col">Ação</th>
@@ -35,6 +36,7 @@
             @foreach ( $jogos as $jogo)
                 <tr>
                     <th scope="row">{{ $jogo->id}}</th>
+                    <td>{{ $jogo->concurso_id}}</td>
                     <td>{{ $jogo->identificador_jogo}}</td>
                     <td>{{ $jogo->created_at}}</td>
 

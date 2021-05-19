@@ -24,10 +24,9 @@ class JogosController extends Controller
     public function index()
     {
         $jogos = $this->repositoryJogo->all();
-        $concurso = $this->repositoryConcurso->all();
+        $concursos = $this->repositoryConcurso->all();
 
         return view('pages.numerosjogados.index', compact('jogos'));
-
 
     }
 
@@ -49,7 +48,8 @@ class JogosController extends Controller
      */
     public function create()
     {
-        return view('pages.numerosjogados.create');
+        $concursos = Concursos::all();
+        return view('pages.numerosjogados.create', compact('concursos'));
     }
 
     /**
@@ -60,12 +60,18 @@ class JogosController extends Controller
      */
     public function store(StoreJogosRequest $request)
     {
-
+        if(!$jogos = request('concurso_id')){
+            return redirect()
+                    ->back()
+                    ->with('message', 'Insira um concurso');
+        }
+        $concursos = Concursos::all();
         $jogos = new Jogos();
+
+        $jogos->concurso_id = request('concurso_id');
         $jogos->identificador_jogo = request('identificador_jogo');
         $jogos->numerojogado = request('numerojogado');
         $jogos->save();
-
 
         //$cartoes = Cartoes::create($request->all());
         //dd($cartoes);
@@ -103,12 +109,13 @@ class JogosController extends Controller
     {
         //if(!$jogo = $this->repository->find($id))
         //    return redirect()->back();
+        $concursos = Concursos::all();
 
         if(!$jogo = Jogos::find($id)){
             return redirect()->route('cartoes.index');
         }
 
-        return view('pages.numerosjogados.edit', compact('jogo'));
+        return view('pages.numerosjogados.edit', compact('jogo'), compact('concursos'));
     }
 
     /**
@@ -120,18 +127,20 @@ class JogosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //if (!$jogo = $this->repository->find($id))
-        //   return redirect()->back();
-
         $this->validate($request, array(
             'identificador_jogo' => "required|min:1|max:10|unique:jogos,identificador_jogo,$id",
         ));
 
         $jogos = new Jogos();
-
         if(!$jogo = Jogos::find($id)){
             return redirect()->back();
         }
+        elseif(!$jogos = request('concurso_id')){
+            return redirect()
+                    ->back()
+                    ->with('message', 'Insira um concurso');
+        }
+
         $jogos = Jogos::findOrFail($id);
         $jogos->identificador_jogo = request('identificador_jogo');
         $jogos->numerojogado = request('numerojogado');
