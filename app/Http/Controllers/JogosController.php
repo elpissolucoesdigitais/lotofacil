@@ -65,12 +65,15 @@ class JogosController extends Controller
                     ->back()
                     ->with('message', 'Insira um concurso');
         }
+
+
         $concursos = Concursos::all();
         $jogos = new Jogos();
 
         $jogos->concurso_id = request('concurso_id');
         $jogos->identificador_jogo = request('identificador_jogo');
         $jogos->numerojogado = request('numerojogado');
+        
         $jogos->save();
 
         //$cartoes = Cartoes::create($request->all());

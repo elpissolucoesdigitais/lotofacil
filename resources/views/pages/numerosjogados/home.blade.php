@@ -3,6 +3,7 @@
 @section('index')
 
         <br>
+        
         <h1 style="text-align:center;">
             Seja bem vindo ao <br>
             Sistema Loto Facil!

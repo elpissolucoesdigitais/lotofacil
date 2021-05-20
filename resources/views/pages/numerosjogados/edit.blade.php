@@ -45,7 +45,7 @@
                 <input type="text" class="form-control" name="identificador_jogo" id="identificador_jogo" value="{{$jogo ->identificador_jogo}}" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
                 <div class="dropdown">
                     <div aria-labelledby="dropdownMenuButton">
-                        <select class="btn btn-secondary dropdown-toggle" name="concurso_id" id="inputConcurso_id">
+                        <select class="btn btn-success dropdown-toggle" name="concurso_id" id="inputConcurso_id">
                             <option value="">Concurso</option>
                                 @foreach ($concursos as $concurso)
                                     <option value="{{$concurso->identificador_concurso}}">
@@ -71,11 +71,11 @@
                 <br>
             @endfor
             <br>
-            <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">Concluir</button>
+            <button type="submit" class="btn btn-success btn-lg" role="toolbar">Concluir</button>
             <div class="btn-group mr-2" role="group" aria-label="Second group">
-                <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
-                    <a href=" {{ route('cartoes.index')}} "> Voltar </a>
-                </button>
+                <div class="acoes">
+                    <a class="btn btn-primary" href=" {{ route('cartoes.index')}} ">Voltar</a>
+                </div>
             </div>
             </center>
 </form>

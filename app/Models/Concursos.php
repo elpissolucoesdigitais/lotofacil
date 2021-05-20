@@ -11,7 +11,7 @@ class Concursos extends Model
 
     protected $table = 'concursos';
 
-    protected $fillable = ['identificador_concurso', 'jogo_id'];
+    protected $fillable = ['identificador_concurso'];
     protected $casts = [
         'numerosorteado' => 'array'
     ];

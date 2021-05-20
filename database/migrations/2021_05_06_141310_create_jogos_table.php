@@ -21,7 +21,7 @@ class CreateJogosTable extends Migration
             $table->integer('identificador_jogo')->unique();
             $table->json('numerojogado');
             $table->timestamps();
-            $table->foreign('concurso_id')->references('id')->on('concursos')->onDelete('cascade');
+            $table->foreign('concurso_id')->references('id')->on('concursos');
         });
     }
 

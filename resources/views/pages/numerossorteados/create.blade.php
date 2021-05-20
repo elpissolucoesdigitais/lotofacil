@@ -70,14 +70,14 @@
             <div class="d-flex justify-content-center">
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
+                        <button type="submit" class="btn btn-success btn-lg" role="toolbar">
                             Cadastrar Concurso
                         </button>
                     </div>
                     <div class="btn-group mr-2" role="group" aria-label="Second group">
-                        <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
-                            <a href=" {{ route('cartoes.home')}} "> Voltar </a>
-                        </button>
+                        <div class="acoes">
+                            <a class="btn btn-primary" href=" {{ route('cartoes.home')}} ">Voltar</a>
+                        </div>
                     </div>
                 </div>
             </div>

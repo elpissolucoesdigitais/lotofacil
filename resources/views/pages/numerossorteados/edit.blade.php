@@ -55,11 +55,11 @@
                     <br>
                 @endfor
                 <br>
-                <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">Concluir</button>
+                <button type="submit" class="btn btn-success btn-lg" role="toolbar">Concluir</button>
                 <div class="btn-group mr-2" role="group" aria-label="Second group">
-                    <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
-                        <a href=" {{ route('sorteados.index')}} "> Voltar </a>
-                    </button>
+                    <div class="acoes">
+                        <a class="btn btn-primary" href=" {{ route('sorteados.index')}} ">Voltar</a>
+                    </div>
                 </div>
             </center>
         </form>

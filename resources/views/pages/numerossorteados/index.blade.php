@@ -6,9 +6,9 @@
 
     <div class="d-flex justify-content-center">
         <div class="btn-group mr-2" role="group" aria-label="Second group">
-            <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
-                <a href=" {{ route('cartoes.home')}} "> Voltar </a>
-            </button>
+            <div class="acoes">
+                <a class="btn btn-primary" href=" {{ route('cartoes.home')}} ">Voltar</a>
+            </div>
         </div>
     </div>
 
@@ -45,17 +45,15 @@
                     <td>{{ $concurso ->identificador_concurso}}</td>
                     <td>{{ $concurso ->created_at}}</td>
                     <td width="30%">
-                        <button type="button" class="btn btn-success">
-                            <a href="{{ route('sorteados.show', $concurso->id)}}" >Vizualizar</a>
-                        </button>
-                        <button type="button" class="btn btn-primary">
-                            <a href="{{ route('sorteados.edit', $concurso->id)}}">Editar</a>
-                        </button>
-                        <form action="{{ route('sorteados.destroy', $concurso->id)}}" method="post">
-                            @csrf
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn btn-danger">Apagar</button>
-                        </form>
+                        <div class="acoes">
+                            <a class="btn btn-success" href="{{ route('sorteados.show', $concurso->id)}}" >Vizualizar</a>
+                            <a class="btn btn-primary" href="{{ route('sorteados.edit', $concurso->id)}}">Editar</a>
+                            <form action="{{ route('sorteados.destroy', $concurso->id)}}" method="post">
+                                @csrf
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-danger">Apagar</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach

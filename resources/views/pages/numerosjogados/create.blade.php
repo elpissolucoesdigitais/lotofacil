@@ -37,7 +37,7 @@
 
                 <div class="dropdown">
                     <div aria-labelledby="dropdownMenuButton">
-                        <select class="btn btn-secondary dropdown-toggle" name="concurso_id" id="inputConcurso_id">
+                        <select class="btn btn-success dropdown-toggle" name="concurso_id" id="inputConcurso_id">
                             <option value="">Concurso</option>
                                 @foreach ($concursos as $concurso)
                                     <option value="{{$concurso->identificador_concurso}}">
@@ -86,14 +86,12 @@
             <div class="d-flex justify-content-center">
                 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
+                        <button type="submit" class="btn btn-success" role="toolbar">
                             Cadastrar Cartão
                         </button>
                     </div>
-                    <div class="btn-group mr-2" role="group" aria-label="Second group">
-                        <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
-                            <a href=" {{ route('cartoes.home')}} "> Voltar </a>
-                        </button>
+                    <div class="acoes">
+                        <a class="btn btn-primary" href=" {{ route('cartoes.home')}} ">Voltar</a>
                     </div>
                 </div>
             </div>

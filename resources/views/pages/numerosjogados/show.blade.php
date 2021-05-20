@@ -21,14 +21,14 @@
                 <td>{{ $jogo->identificador_jogo}}</td>
                 <td>{{ $jogo->created_at}}</td>
                 <td width="30%">
-                    <button type="button" class="btn btn-primary">
-                        <a href="{{ route('cartoes.edit', $jogo ->id)}}">Editar</a>
-                    </button>
-                    <form action="{{ route('cartoes.destroy', $jogo ->id)}}" method="post">
-                        @csrf
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger">Apagar</button>
-                    </form>
+                    <div class="acoes">
+                        <a class="btn btn-primary" href="{{ route('cartoes.edit', $jogo ->id)}}">Editar</a>
+                        <form action="{{ route('cartoes.destroy', $jogo ->id)}}" method="post">
+                            @csrf
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-danger">Apagar</button>
+                        </form>
+                    </div>
                 </td>
             </tr>
         </tbody>
@@ -50,9 +50,9 @@
     </div>
     <br>
     <div class="btn-group mr-2" role="group" aria-label="Second group">
-        <button type="submit" class="btn btn-secondary btn-lg" role="toolbar">
-            <a href=" {{ route('cartoes.index')}} "> Voltar </a>
-        </button>
+        <div class="acoes">
+            <a class="btn btn-primary" href=" {{ route('cartoes.index')}} ">Voltar</a>
+        </div>
     </div>
     </center>
 @endsection
