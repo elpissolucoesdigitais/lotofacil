@@ -3,7 +3,7 @@
 @section('index')
 
         <br>
-        
+
         <h1 style="text-align:center;">
             Seja bem vindo ao <br>
             Sistema Loto Facil!
@@ -32,6 +32,16 @@
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group mr-2" role="group" aria-label="Second group">
                     <a href="{{ route('sorteados.create') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cadastrar Concurso</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="d-flex justify-content-center">
+
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="Second group">
+                    <a href="{{ route('comparacao.index') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Comparar Concurso</a>
                 </div>
             </div>
         </div>

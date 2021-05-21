@@ -31,6 +31,8 @@ Route::post('sorteados/search', [ConcursosController::class, 'search'])->name('s
 Route::resource('sorteados', 'App\Http\Controllers\ConcursosController');
 
 
+Route::resource('comparacao', 'App\Http\Controllers\ComparaController');
+
 
 
 // Route::get('/', function () {

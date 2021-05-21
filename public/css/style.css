@@ -15,12 +15,6 @@ input{
     margin-right:auto;
     margin-left:auto;
 }
-/*.table_form{
-    border: 1px solid;
-    border-radius: 10px;
-    margin-right:auto;
-    margin-left:auto;
-}*/
 
 a:link{
     text-decoration: none;
@@ -28,7 +22,7 @@ a:link{
 
 
 .form-control{
-    margin: 2px 0px 2px 2px;
+    margin: 1px;
     height: 40px;
 }
 button.btn{
@@ -38,17 +32,10 @@ button.btn{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
 }
-.dropdown {
-    width: 20%;
-}
+
 .dropdown-toggle{
-    width: 98%;
-    margin: 2px 0px 2px 2px;
+    margin: 1px;
     height: 40px;
-}
-.mb-3{
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .acoes{
@@ -61,6 +48,5 @@ button.btn{
     width: 170px;
     height: 40px;
     font-size: 15px;
-    margin: auto;
 }
 
