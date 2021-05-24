@@ -47,7 +47,7 @@
                 @for ($i = 0 ; $i < 5; $i++)
                     @for ($j = 0 ; $j < 4; $j++)
 
-                        <input type="number" name="numerosorteado[]" value="{{$concurso->numerosorteado[$s]}}">
+                        <input name="numerosorteado[]" value="{{$concurso->numerosorteado[$s]}}" placeholder="{{$s + 1}}">
                         @php
                             $s = $s + 1;
                         @endphp

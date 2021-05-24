@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Compara extends Model
 {
     use HasFactory;
+
+    protected $table = 'comparacoes';
+
 }

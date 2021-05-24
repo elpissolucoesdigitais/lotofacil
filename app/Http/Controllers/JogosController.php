@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreJogosRequest;
 use App\Models\Concursos;
 use App\Models\Jogos;
+use App\Models\Compara;
 use Illuminate\Http\Request;
 
 class JogosController extends Controller
@@ -73,7 +74,7 @@ class JogosController extends Controller
         $jogos->concurso_id = request('concurso_id');
         $jogos->identificador_jogo = request('identificador_jogo');
         $jogos->numerojogado = request('numerojogado');
-        
+
         $jogos->save();
 
         //$cartoes = Cartoes::create($request->all());
@@ -90,11 +91,22 @@ class JogosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Jogos $jogos)
     {
         // $jogo = Cartoes::where('id', $id)->first();
 
         $jogo = Jogos::find($id);
+        
+
+        /*$concursos = $jogos->concursos()->get();
+        
+        if($concursos){
+            echo "<h1>Concursos:</h1>";
+
+            foreach($concursos as $concurso){
+                echo "<p>#{$concurso->concurso_id}}</p>";
+            }
+        }*/
 
         // return redirect()->route('cartoes.show', compact('jogo'));
 

@@ -17,7 +17,7 @@ class Jogos extends Model
     ];
 
     public function concursos(){
-        return $this->hasMany(Concursos::class);
+        return $this->belongsToMany(Concursos::class, 'comparacoes', 'jogos', 'concursos');
     }
 
 

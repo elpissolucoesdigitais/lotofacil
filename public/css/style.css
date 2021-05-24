@@ -8,12 +8,14 @@ table{
 
 input{
     width: 60px;
-    height: 50px;
+    height: 40px;
     border: 1px solid;
     border-radius: 10px;
     text-align: center;
-    margin-right:auto;
-    margin-left:auto;
+    font-size: 28px;
+    font-weight: bold;
+    margin:1.5px 0px 1.5px 0px;
+    color: #be0f0f;
 }
 
 a:link{
@@ -28,9 +30,9 @@ a:link{
 button.btn{
     width: 170px;
     height: 40px;
-    margin: 2px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
+    margin-left:2px;
 }
 
 .dropdown-toggle{
@@ -44,7 +46,7 @@ button.btn{
 .acoes a{
     font-family: Arial, Helvetica, sans-serif;
     padding: 7px 0px 0px 0px;
-    margin: 2px;
+    margin-left:2px;
     width: 170px;
     height: 40px;
     font-size: 15px;

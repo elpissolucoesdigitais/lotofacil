@@ -50,7 +50,7 @@
                                 @php
                                     $s = $s + 1;
                                 @endphp
-                                <input type="number" name="numerosorteado[]" value="numerosorteado[{{$s}}]" placeholder="{{$s}}">
+                                <input name="numerosorteado[]" placeholder="{{$s}}">
                             @endfor
                             <br>
                         @endfor

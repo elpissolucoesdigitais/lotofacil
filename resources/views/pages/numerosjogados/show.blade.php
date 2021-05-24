@@ -40,7 +40,7 @@
         @endphp
         @for ($i = 0 ; $i < 5; $i++)
             @for ($j = 0 ; $j < 4; $j++)
-                <input type="number" name="numerojogado[]" value="{{$jogo->numerojogado[$s]}}" placeholder="{{$s}}">
+                <input  value="{{$jogo->numerojogado[$s]}}">
                 @php
                     $s = $s + 1;
                 @endphp

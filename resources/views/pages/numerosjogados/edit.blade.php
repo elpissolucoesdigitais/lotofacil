@@ -48,7 +48,7 @@
                         <select class="btn btn-success dropdown-toggle" name="concurso_id" id="inputConcurso_id">
                             <option value="">Concurso</option>
                                 @foreach ($concursos as $concurso)
-                                    <option value="{{$concurso->identificador_concurso}}">
+                                    <option name="{{$concurso->identificador_concurso}}" value="{{$concurso->identificador_concurso}}">
                                         Concurso - {{$concurso->identificador_concurso}}
                                     </option>
                                 @endforeach
@@ -63,7 +63,7 @@
             @endphp
             @for ($i = 0 ; $i < 5; $i++)
                 @for ($j = 0 ; $j < 4; $j++)
-                    <input type="number" name="numerojogado[]" value="{{$jogo->numerojogado[$s]}}" placeholder="{{$s}}">
+                    <input name="numerojogado[]" value="{{$jogo->numerojogado[$s]}}">
                     @php
                         $s = $s + 1;
                     @endphp
