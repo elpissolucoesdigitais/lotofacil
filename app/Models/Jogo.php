@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Jogos extends Model
+class Jogo extends Model
 {
     use HasFactory;
 
@@ -16,9 +16,7 @@ class Jogos extends Model
         'numerojogado' => 'array'
     ];
 
-    public function concursos(){
-        return $this->belongsToMany(Concursos::class, 'comparacoes', 'jogos', 'concursos');
+    public function concurso(){
+        return $this->belongsTo(Concurso::class);
     }
-
-
 }

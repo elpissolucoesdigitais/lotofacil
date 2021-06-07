@@ -10,6 +10,7 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
+    @yield('content')
     @yield('index')
     @yield('create')
     @yield('show')

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Concursos extends Model
+class Concurso extends Model
 {
     use HasFactory;
 
@@ -16,6 +16,12 @@ class Concursos extends Model
         'numerosorteado' => 'array'
     ];
 
-    
+    public function jogo()
+    {
+        return $this->hasOne(Jogo::class);
+    }
 
+    public function jogos(){
+        return $this->hasMany(Jogo::class);
+    }
 }

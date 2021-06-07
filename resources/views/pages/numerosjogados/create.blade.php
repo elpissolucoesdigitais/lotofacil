@@ -30,26 +30,26 @@
 
 
 
-        <form action=" {{ route('cartoes.store')}} " method="POST">
+        <form action=" {{ route('jogo.store')}} " method="POST">
             @csrf
             <div class="input-group mb-3">
-                <input type="text" class="form-control" name="identificador_jogo" placeholder="Número do Identificador Cartão" aria-label="Número do Concurso" aria-describedby="basic-addon2">
+                <input type="text" class="form-control" name="identificador_jogo" placeholder="Número do Identificador Cartão">
 
                 <div class="dropdown">
                     <div aria-labelledby="dropdownMenuButton">
                         <select class="btn btn-success dropdown-toggle" name="concurso_id" id="inputConcurso_id">
                             <option value="">Concurso</option>
                                 @foreach ($concursos as $concurso)
-                                    <option name="{{$concurso->identificador_concurso}}" value="{{$concurso->identificador_concurso}}">
-                                        Concurso - {{$concurso->identificador_concurso}}
-                                    </option>
+                                <option name="{{$concurso->id}}" value="{{$concurso->id}}">
+                                    Concurso - {{$concurso->identificador_concurso}}
+                                </option>
                                 @endforeach
                         </select>
                     </div>
                 </div>
             </div>
 
-            <table class="">
+            <table>
                 <thead>
                     <h2 style="text-align:center;">Insira os Números Abaixo</h2>
                 </thead>
@@ -61,12 +61,13 @@
 
                 <center>
                     <div class="table_form">
-                        @for ($i = 0 ; $i < 5; $i++)
-                            @for ($j = 0 ; $j < 4; $j++)
+                        @for ($i = 0 ; $i < 10; $i++)
+                            @for ($j = 0 ; $j < 5; $j++)
+
+                                <input name="numerojogado[{{$s}}]">
                                 @php
                                     $s = $s + 1;
                                 @endphp
-                                <input name="numerojogado[]" placeholder="{{$s}}" >
                             @endfor
                             <br>
                         @endfor
@@ -91,7 +92,7 @@
                         </button>
                     </div>
                     <div class="acoes">
-                        <a class="btn btn-primary" href=" {{ route('cartoes.home')}} ">Voltar</a>
+                        <a class="btn btn-primary" href=" {{ route('jogo.home')}} ">Voltar</a>
                     </div>
                 </div>
             </div>

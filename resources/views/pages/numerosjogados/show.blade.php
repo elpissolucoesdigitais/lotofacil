@@ -22,8 +22,8 @@
                 <td>{{ $jogo->created_at}}</td>
                 <td width="30%">
                     <div class="acoes">
-                        <a class="btn btn-primary" href="{{ route('cartoes.edit', $jogo ->id)}}">Editar</a>
-                        <form action="{{ route('cartoes.destroy', $jogo ->id)}}" method="post">
+                        <a class="btn btn-primary" href="{{ route('jogo.edit', $jogo ->id)}}">Editar</a>
+                        <form action="{{ route('jogo.destroy', $jogo ->id)}}" method="post">
                             @csrf
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn btn-danger">Apagar</button>
@@ -34,12 +34,12 @@
         </tbody>
     </table>
     <center>
-    <div class="table_form">
+    <div>
         @php
             $s = 0;
         @endphp
-        @for ($i = 0 ; $i < 5; $i++)
-            @for ($j = 0 ; $j < 4; $j++)
+        @for ($i = 0 ; $i < 10; $i++)
+            @for ($j = 0 ; $j < 5; $j++)
                 <input  value="{{$jogo->numerojogado[$s]}}">
                 @php
                     $s = $s + 1;
@@ -51,7 +51,7 @@
     <br>
     <div class="btn-group mr-2" role="group" aria-label="Second group">
         <div class="acoes">
-            <a class="btn btn-primary" href=" {{ route('cartoes.index')}} ">Voltar</a>
+            <a class="btn btn-primary" href=" {{ route('jogo.index')}} ">Voltar</a>
         </div>
     </div>
     </center>

@@ -27,7 +27,7 @@
                 @endforeach
             </div>
         @endif
-        <form action=" {{ route('sorteados.store')}} " method="POST">
+        <form action=" {{ route('concurso.store')}} " method="POST">
             @csrf
             <div class="input-group mb-3">
                 <input type="text" class="form-control" name="identificador_concurso" placeholder="Número do Identificador Concurso" aria-label="Número do Concurso" aria-describedby="basic-addon2">
@@ -45,12 +45,12 @@
 
                 <center>
                     <div class="table_form">
-                        @for ($i = 0 ; $i < 5; $i++)
-                            @for ($j = 0 ; $j < 4; $j++)
+                        @for ($i = 0 ; $i < 4; $i++)
+                            @for ($j = 0 ; $j < 5; $j++)
                                 @php
                                     $s = $s + 1;
                                 @endphp
-                                <input name="numerosorteado[]" placeholder="{{$s}}">
+                                <input name="numerosorteado[]">
                             @endfor
                             <br>
                         @endfor
@@ -76,7 +76,7 @@
                     </div>
                     <div class="btn-group mr-2" role="group" aria-label="Second group">
                         <div class="acoes">
-                            <a class="btn btn-primary" href=" {{ route('cartoes.home')}} ">Voltar</a>
+                            <a class="btn btn-primary" href=" {{ route('jogo.home')}} ">Voltar</a>
                         </div>
                     </div>
                 </div>

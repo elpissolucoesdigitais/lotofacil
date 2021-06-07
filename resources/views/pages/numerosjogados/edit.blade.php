@@ -27,7 +27,7 @@
             </tbody>
         </table>
 
-        <form action=" {{ route('cartoes.update', $jogo->id)}}  " method="POST">
+        <form action=" {{ route('jogo.update', $jogo->id)}}  " method="POST">
             @method('put')
             @csrf
 
@@ -48,9 +48,9 @@
                         <select class="btn btn-success dropdown-toggle" name="concurso_id" id="inputConcurso_id">
                             <option value="">Concurso</option>
                                 @foreach ($concursos as $concurso)
-                                    <option name="{{$concurso->identificador_concurso}}" value="{{$concurso->identificador_concurso}}">
-                                        Concurso - {{$concurso->identificador_concurso}}
-                                    </option>
+                                <option name="{{$concurso->id}}" value="{{$concurso->id}}">
+                                    Concurso - {{$concurso->identificador_concurso}}
+                                </option>
                                 @endforeach
                         </select>
                     </div>
@@ -61,8 +61,8 @@
             @php
                 $s = 0;
             @endphp
-            @for ($i = 0 ; $i < 5; $i++)
-                @for ($j = 0 ; $j < 4; $j++)
+            @for ($i = 0 ; $i < 10; $i++)
+                @for ($j = 0 ; $j < 5; $j++)
                     <input name="numerojogado[]" value="{{$jogo->numerojogado[$s]}}">
                     @php
                         $s = $s + 1;
@@ -74,7 +74,7 @@
             <button type="submit" class="btn btn-success btn-lg" role="toolbar">Concluir</button>
             <div class="btn-group mr-2" role="group" aria-label="Second group">
                 <div class="acoes">
-                    <a class="btn btn-primary" href=" {{ route('cartoes.index')}} ">Voltar</a>
+                    <a class="btn btn-primary" href=" {{ route('jogo.index')}} ">Voltar</a>
                 </div>
             </div>
             </center>

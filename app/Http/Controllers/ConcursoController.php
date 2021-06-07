@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreConcursosRequest;
-use App\Models\Concursos;
+use App\Http\Requests\StoreUpdateConcurso;
+use App\Models\Concurso;
+use App\Models\Jogo;
 use Illuminate\Http\Request;
 
-class ConcursosController extends Controller
+class ConcursoController extends Controller
 {
     private $repositoryConcurso;
-    public function __construct(Concursos $concurso)
+    public function __construct(Concurso $concurso)
     {
         $this->repositoryConcurso = $concurso;
     }
@@ -32,6 +33,7 @@ class ConcursosController extends Controller
      */
     public function create()
     {
+
         return view('pages.numerossorteados.create');
     }
 
@@ -41,9 +43,9 @@ class ConcursosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreConcursosRequest $request)
+    public function store(StoreUpdateConcurso $request)
     {
-        $concursos = new Concursos();
+        $concursos = new Concurso();
 
         $concursos->identificador_concurso = request('identificador_concurso');
         $concursos->numerosorteado = request('numerosorteado');
@@ -52,7 +54,7 @@ class ConcursosController extends Controller
         //dd($concursos);
 
         return redirect()
-                    ->route('sorteados.index')
+                    ->route('concurso.index')
                     ->with('message', 'Cartão atualizado com sucesso');
     }
 
@@ -62,15 +64,17 @@ class ConcursosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         // $concurso = Concursos::where('id', $id)->first();
 
-        $concurso = Concursos::find($id);
+        $concurso = Concurso::find($id);
+
+        $jogos = $concurso->jogos()->get()->all();
 
         // return redirect()->route('cartoes.show', compact('cartao'));
 
-        return view('pages.numerossorteados.show', compact('concurso'));
+        return view('pages.numerossorteados.show', compact('concurso'), compact('jogos'));
     }
 
     /**
@@ -83,9 +87,9 @@ class ConcursosController extends Controller
     {
         //if(!$concurso = $this->repository->find($id))
         //    return redirect()->back();
-        $concurso = Concursos::findOrFail($id);
-        if(!$concurso = Concursos::find($id)){
-            return redirect()->route('sorteados.index');
+        $concurso = Concurso::findOrFail($id);
+        if(!$concurso = Concurso::find($id)){
+            return redirect()->route('concurso.index');
         }
 
         return view('pages.numerossorteados.edit', compact('concurso'));
@@ -109,11 +113,11 @@ class ConcursosController extends Controller
             'identificador_concurso' => "required|min:1|max:10|unique:concursos,identificador_concurso,$id",
         ));
 
-        if(!$concurso = Concursos::find($id)){
+        if(!$concurso = Concurso::find($id)){
             return redirect()->back();
         }
-        $concurso = new Concursos();
-        $concurso = Concursos::findOrFail($id);
+        $concurso = new Concurso();
+        $concurso = Concurso::findOrFail($id);
         $concurso->identificador_concurso = request('identificador_concurso');
         $concurso->numerosorteado = request('numerosorteado');
 
@@ -121,7 +125,7 @@ class ConcursosController extends Controller
 
 
         return redirect()
-                ->route('sorteados.index')
+                ->route('concurso.index')
                 ->with('message', 'Cartão Sorteado atualizado com sucesso');
     }
 
@@ -133,17 +137,17 @@ class ConcursosController extends Controller
      */
     public function destroy($id)
     {
-        $concurso = Concursos::find($id);
+        $concurso = Concurso::find($id);
 
         $concurso->delete();
 
         return redirect()
-            ->route('sorteados.index')
+            ->route('concurso.index')
             ->with('message', 'Cartão deletado com sucesso');
     }
 
     public function search(Request $request){
-        $concursos = Concursos::where('identificador_concurso', 'LIKE', "%{$request->search}%")
+        $concursos = Concurso::where('identificador_concurso', 'LIKE', "%{$request->search}%")
                             ->paginate();
 
         return view('pages.numerossorteados.index', compact('concursos'));

@@ -7,15 +7,12 @@ table{
 }
 
 input{
-    width: 60px;
-    height: 40px;
+    width: 40px;
     border: 1px solid;
-    border-radius: 10px;
+    border-radius: 3px;
     text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    margin:1.5px 0px 1.5px 0px;
     color: #be0f0f;
+    margin-bottom: 2px;
 }
 
 a:link{
@@ -24,11 +21,11 @@ a:link{
 
 
 .form-control{
-    margin: 1px;
     height: 40px;
+    margin: 0px 0px 0px 2px;
 }
+
 button.btn{
-    width: 170px;
     height: 40px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -36,7 +33,7 @@ button.btn{
 }
 
 .dropdown-toggle{
-    margin: 1px;
+    margin: 0px 2px 0px 2px;
     height: 40px;
 }
 
@@ -45,10 +42,41 @@ button.btn{
 }
 .acoes a{
     font-family: Arial, Helvetica, sans-serif;
-    padding: 7px 0px 0px 0px;
     margin-left:2px;
-    width: 170px;
     height: 40px;
     font-size: 15px;
 }
+
+.green{
+    color: rgb(2, 110, 2);
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px auto;
+    max-width: 98%;
+    flex-wrap: wrap;
+    border-bottom: rgb(200, 200, 200) solid 1px;
+}
+
+.table_form{
+    padding: 10px 1px 10px 1px;
+    margin-bottom: 5px;
+    border: solid 1.5px rgb(255, 202, 104);
+    background-color: #ffffc4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 

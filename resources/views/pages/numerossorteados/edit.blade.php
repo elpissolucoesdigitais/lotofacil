@@ -25,7 +25,7 @@
                     </tr>
               </tbody>
         </table>
-        <form action=" {{ route('sorteados.update', $concurso->id)}}  " method="POST">
+        <form action=" {{ route('concurso.update', $concurso->id)}}  " method="POST">
             @method('put')
             @csrf
 
@@ -44,10 +44,10 @@
                 @php
                     $s = 0;
                 @endphp
-                @for ($i = 0 ; $i < 5; $i++)
-                    @for ($j = 0 ; $j < 4; $j++)
+                @for ($i = 0 ; $i < 4; $i++)
+                    @for ($j = 0 ; $j < 5; $j++)
 
-                        <input name="numerosorteado[]" value="{{$concurso->numerosorteado[$s]}}" placeholder="{{$s + 1}}">
+                        <input name="numerosorteado[]" value="{{$concurso->numerosorteado[$s]}}">
                         @php
                             $s = $s + 1;
                         @endphp
@@ -58,7 +58,7 @@
                 <button type="submit" class="btn btn-success btn-lg" role="toolbar">Concluir</button>
                 <div class="btn-group mr-2" role="group" aria-label="Second group">
                     <div class="acoes">
-                        <a class="btn btn-primary" href=" {{ route('sorteados.index')}} ">Voltar</a>
+                        <a class="btn btn-primary" href=" {{ route('concurso.index')}} ">Voltar</a>
                     </div>
                 </div>
             </center>

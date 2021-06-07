@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-center">
         <div class="btn-group mr-2" role="group" aria-label="Second group">
             <div class="acoes">
-                <a class="btn btn-primary" href=" {{ route('cartoes.home')}} ">Voltar</a>
+                <a class="btn btn-primary" href=" {{ route('jogo.home')}} ">Voltar</a>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
 
     @endif
     <br>
-    <form action="{{ route('sorteados.search')}}" method="post">
+    <form action="{{ route('concurso.search')}}" method="post">
         @csrf
         <div class="input-group mb-3">
             <input type="text" name="search" id="search" class="form-control" placeholder="Pesquisar seus Concursos" aria-label="Pesquisar seus Concursos" aria-describedby="basic-addon2">
@@ -44,11 +44,11 @@
                     <th scope="row">{{ $concurso ->id}}</th>
                     <td>{{ $concurso ->identificador_concurso}}</td>
                     <td>{{ $concurso ->created_at}}</td>
-                    <td width="30%">
+                    <td width="200px">
                         <div class="acoes">
-                            <a class="btn btn-success" href="{{ route('sorteados.show', $concurso->id)}}" >Vizualizar</a>
-                            <a class="btn btn-primary" href="{{ route('sorteados.edit', $concurso->id)}}">Editar</a>
-                            <form action="{{ route('sorteados.destroy', $concurso->id)}}" method="post">
+                            <a class="btn btn-success" href="{{ route('concurso.show', $concurso->id)}}" >Visualizar</a>
+                            <a class="btn btn-primary" href="{{ route('concurso.edit', $concurso->id)}}">Editar</a>
+                            <form action="{{ route('concurso.destroy', $concurso->id)}}" method="post">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="btn btn-danger">Apagar</button>

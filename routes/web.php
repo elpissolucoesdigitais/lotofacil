@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\JogosController;
-use App\Http\Controllers\ConcursosController;
+use App\Http\Controllers\JogoController;
+use App\Http\Controllers\ConcursoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,20 +19,16 @@ use Illuminate\Support\Facades\Route;
 /*
 Rotas para os numeros cadastrados
 */
-Route::post('cartoes/search', [JogosController::class, 'search'])->name('cartoes.search');
-Route::resource('cartoes', 'App\Http\Controllers\JogosController');
-Route::get('/', [JogosController::class, 'home'])->name('cartoes.home');
+Route::post('jogo/search', [JogoController::class, 'search'])->name('jogo.search');
+Route::resource('jogo', 'App\Http\Controllers\JogoController');
+Route::get('/', [JogoController::class, 'home'])->name('jogo.home');
 
 
 /*
 Rotas para os numeros sorteados
 */
-Route::post('sorteados/search', [ConcursosController::class, 'search'])->name('sorteados.search');
-Route::resource('sorteados', 'App\Http\Controllers\ConcursosController');
-
-
-Route::resource('comparacao', 'App\Http\Controllers\ComparaController');
-
+Route::post('concurso/search', [ConcursoController::class, 'search'])->name('concurso.search');
+Route::resource('concurso', 'App\Http\Controllers\ConcursoController');
 
 
 // Route::get('/', function () {

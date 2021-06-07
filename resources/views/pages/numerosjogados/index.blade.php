@@ -6,12 +6,12 @@
     <div class="d-flex justify-content-center">
 
         <div class="acoes">
-            <a class="btn btn-primary" href=" {{ route('cartoes.home')}} ">Voltar</a>
+            <a class="btn btn-primary" href=" {{ route('jogo.home')}} ">Voltar</a>
         </div>
     </div>
 
     <br>
-    <form action="{{ route('cartoes.search')}}" method="post">
+    <form action="{{ route('jogo.search')}}" method="post">
         @csrf
         <div class="input-group mb-3">
             <input type="text" name="search" id="search" class="form-control" placeholder="Pesquisar Identificador" aria-label="Pesquisar seus Concursos" aria-describedby="basic-addon2">
@@ -40,13 +40,13 @@
                     <td>{{ $jogo->created_at}}</td>
 
 
-                    <td width="40%">
+                    <td width="200px">
                         <div class="acoes">
 
-                            <a class="btn btn-success" href="{{ route('cartoes.show', $jogo ->id)}}" >Vizualizar</a>
-                            <a class="btn btn-primary" href="{{ route('cartoes.edit', $jogo ->id)}}">Editar</a>
+                            <a class="btn btn-success" href="{{ route('jogo.show', $jogo ->id)}}" >Vizualizar</a>
+                            <a class="btn btn-primary" href="{{ route('jogo.edit', $jogo ->id)}}">Editar</a>
 
-                            <form action="{{ route('cartoes.destroy', $jogo ->id)}}" method="post">
+                            <form action="{{ route('jogo.destroy', $jogo ->id)}}" method="post">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
                                 <button type="submit" class="btn btn-danger">Apagar</button>
